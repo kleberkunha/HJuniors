@@ -1,0 +1,19 @@
+<h1>User#edit</h1>
+<p>Find me in app/views/user/edit.html.erb</p>
+
+<h2>Edit user</h2>
+<%= form_with model: @user, url: user_path, method: :patch, local: true, scope: :user do |f| %>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+    </p>
+    <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+    </p>
+    <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+    </p>
+
+  <%= f.submit 'Update user' %>
+<% end %>

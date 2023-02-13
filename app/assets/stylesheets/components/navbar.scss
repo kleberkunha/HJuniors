@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    align-items: baseline;
+    padding: 0;
+}
+.bg-navbar{
+    background-color: black;
+    width: 15vw;
+    height: 100vh;
+
+    .div-content-navbar{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .collapse{
+        width: 100%;
+    }
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .nav-item{
+            width: 100%;
+            text-align: center;
+            padding: 0;
+
+            a .btn-signout{
+                background: none;
+                color: #007bff;
+                border: 0;
+            }
+            a .btn-signout:hover{
+                color: #6710f2a4;
+            }
+        }
+    }
+}
