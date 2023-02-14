@@ -9,11 +9,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <div class="d-flex">
-      <%= render 'components/navbar' %>
+      <%= render partial: 'components/navbar', format: :erb %>
       <div class="w-100 flex-column">
+        <%= render partial: 'components/waves', format: :erb %>
         <% if notice %>
           <p class="alert alert-success"><%= notice %></p>
         <% end %>

@@ -1,0 +1,68 @@
+
+
+:root{
+  --bg-shape-color:linear-gradient(120deg,  #343A4F, #0F1620) ;
+ --lightblue: #3D9DEA;
+ --darkblue: #4A4EEE;
+ --text-color: #D5E1EF;
+}
+.wrapper{
+  width: 350px;
+  border-radius: 40px;
+  background-image: var(--bg-shape-color);
+  overflow: hidden;
+  margin: 10px;
+}
+
+.wrapper:hover{
+    border: 1px solid blue;
+    margin-bottom: 1px;
+}
+.overviewInfo, .productSpecifications {
+  padding: 24px;
+}
+.overviewInfo{
+  background-image:  linear-gradient(176deg, var(--lightblue), var(--darkblue));
+}
+.projectinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 50px;
+}
+.projectImage {
+    position: absolute;
+    width: 321px;
+    height: auto;
+    transform: rotate(-90deg) translate(-56px, 66px);
+
+ // animation: updowncontroller infinite 3s alternate;
+img{ width: 100%; height: auto; margin-bottom: -130px;}
+  transition: ease 2s all ;
+  &:hover{
+      transition: ease 2s all ;
+    animation: none;
+    transform: rotate(-70deg) translate( 10px, 66px);
+  }
+}
+.projectSpecifications{
+    color: white;
+    padding: 25px;
+
+  .productFeatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    grid-row-gap: 16px;
+    .feature{ display:flex;}
+  }
+}
+/* animation */
+@keyframes updowncontroller{
+  0%  {
+    transform: rotate(-90deg) translate(-56px, 66px);}
+  80%, 100%{
+    transform: rotate(-70deg) translate( 10px, 66px);}
+}

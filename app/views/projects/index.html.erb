@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<div class="container">
+  <div class="row">
+    <% @projects.each do |project|%>
+
+      <div class=" wrapper">
+        <div class="overviewInfo">
+          <div class="projectinfo">
+            <div class="grouptext">
+              <h3>Creator</h3>
+              <p><%=project.creator_name %></p>
+            </div>
+            <div class="grouptext">
+              <h3>Project name</h3>
+              <p><%=project.name %></p>
+            </div>
+            <div class="grouptext">
+              <h3>School</h3>
+              <p><%= project.school %></p>
+            </div>
+            <div class="grouptext">
+              <h3>Description</h3>
+              <p><%= project.description %></p>
+            </div>
+            <div class="projectImage">
+              <img src="https://imgs.search.brave.com/X711qaNbnTVSEiA0UqeMTrvTksMmumuauSr4mGbG87Q/rs:fit:800:665:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvZ2l0aHViL2dp/dGh1Yl9QTkcyMi5w/bmc" alt="product: ps5 controller image">
+            </div>
+          </div>
+        </div>
+        <div class="projectSpecifications">
+          <h1> Description </h1>
+          <p><%= project.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

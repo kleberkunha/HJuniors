@@ -1,31 +1,31 @@
 <nav class="navbar navbar-expand-lg bg-navbar">
   <div class="container-fluid div-content-navbar">
-    <a class="navbar-brand" href="#">OmyJunior</a>
+    <a class="navbar-brand" href="#">Oh My Junior!</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><%= link_to "Home", root_path %></a>
+          <a class="" aria-current="page" href="#"><%= link_to "Home", root_path %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Juniors</a>
+          <a class="" href="#">Juniors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
+          <a class="" href="#"><%= link_to "Projects", projects_path %></a>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Profile", user_index_url(current_user.id) %></a>
+          <a class="" href="#"><%= link_to "Profile", user_index_url(current_user.id) %></a>
           </li>
           <li class="nav-item">
-            <a class="btn-signout"><%= button_to "Sign_out", destroy_user_session_path,
+            <a class="btn-signout"><%= button_to "Disconnect", destroy_user_session_path,
             :method => 'delete', data:{turbo: "false"}, class:'btn-signout' %></a>
           </li>
         <% else %>
           <li class="nav-item">
-            <a><%= button_to "Login", new_user_session_path %></a>
+            <a class="login"><%= link_to "Login", new_user_session_path %></a>
           </li>
         <% end %>
       </ul>
