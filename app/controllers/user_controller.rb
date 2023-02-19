@@ -17,6 +17,7 @@ class UserController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.avatar.attach(params[:avatar])
     if @user.update(user_params)
       redirect_to user_index_url(current_user.id)
       flash[:notice] = "Your profile has been updated."
@@ -36,7 +37,8 @@ class UserController < ApplicationController
       :phone,
       :role,
       :address,
-      :status
+      :status,
+      :avatar
     )
   end
 end

@@ -1,9 +1,15 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
-  # GET /projects or /projects.json
+  def get_user_id_for_projectCard
+    users = User.all
+
+    users.each { |user| id = user.id }
+  end
+
   def index
-    @projects = Project.all
+    @projects = Project.all.reverse
+    #here i do aloop in the project
   end
 
   # GET /projects/1 or /projects/1.json
@@ -45,6 +51,8 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
+    @project = Project.find(params[:id])
+    @project.avatar.attach(params[:avatar])
     respond_to do |format|
       if @project.update(project_params)
         format.html do
@@ -64,10 +72,9 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1 or /projects/1.json
   def destroy
     @project.destroy
-
     respond_to do |format|
       format.html do
-        redirect_to projects_url, notice: "Project was successfully destroyed."
+        redirect_to projects_path, notice: "Project was successfully destroyed."
       end
       format.json { head :no_content }
     end
@@ -88,7 +95,8 @@ class ProjectsController < ApplicationController
       :school,
       :language_id,
       :user_id,
-      :creator_name
+      :creator_name,
+      :avatar
     )
   end
 end

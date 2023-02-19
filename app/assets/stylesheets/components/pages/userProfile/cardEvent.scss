@@ -15,8 +15,7 @@
 }
 
 .wrapper:hover{
-    border: 1px solid blue;
-    margin-bottom: 1px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 255, 0.678);
 }
 .overviewInfo, .productSpecifications {
   padding: 24px;
@@ -39,7 +38,7 @@
     transform: rotate(-90deg) translate(-56px, 66px);
 
  // animation: updowncontroller infinite 3s alternate;
-img{ width: 100%; height: auto; margin-bottom: -130px;}
+img{ width: 100%; height: auto; margin-bottom: -290px;}
   transition: ease 2s all ;
   &:hover{
       transition: ease 2s all ;
@@ -49,7 +48,7 @@ img{ width: 100%; height: auto; margin-bottom: -130px;}
 }
 .projectSpecifications{
     color: white;
-    padding: 25px;
+    padding: 10px 10px 20px 15px;
 
   .productFeatures {
     display: grid;
@@ -65,4 +64,58 @@ img{ width: 100%; height: auto; margin-bottom: -130px;}
     transform: rotate(-90deg) translate(-56px, 66px);}
   80%, 100%{
     transform: rotate(-70deg) translate( 10px, 66px);}
+}
+
+.desc_photo_card_main{
+  display: flex;
+  justify-content: space-between;
+
+  .creator_mini_image {
+    width: 150px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+
+  }
+  .creator_mini_image img{
+    width: 5vw;
+  }
+}
+.projectCardBtnShow{
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: 5px 35px 5px 15px;
+  border-radius: 10px 10px 10px 50px;
+  -webkit-border-radius: 10px 10px 50px 10px;
+  -moz-border-radius: 10px 10px 10px 50px;
+  -ms-border-radius: 10px 10px 10px 50px;
+  -o-border-radius: 10px 10px 10px 50px;
+  float: right;
+  margin-right: -13px;
+  text-decoration: none !important;
+  color: white;
+  font-weight: bold;
+}
+.projectCardBtnShow:hover{
+  color: black;
+}
+
+
+.delete_project-btn{
+  background-color: #ff1201;
+  padding: 5px 15px 7px 65px;
+  border-radius: 10px 10px 10px 70px;
+  -webkit-border-radius: 10px 10px 10px 70px;
+  -moz-border-radius: 10px 10px 10px 70px;
+  -ms-border-radius: 10px 10px 10px 70px;
+  -o-border-radius: 10px 10px 10px 70px;
+  float: left;
+  margin-left: -13px;
+  text-decoration: none !important;
+  color: white;
+  font-weight: bold;
+}
+.delete_project-btn:hover{
+  color: rgb(209, 207, 207);
 }

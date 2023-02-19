@@ -14,8 +14,10 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;">
+            <% if @user.avatar.attached? %>
+              <img src="<%=(url_for(@user.avatar))%>" class="rounded-circle" style="width: 150px;"
+  alt="Avatar" />
+            <% end %>
             <p class="text-muted mb-1"><%= @user.status%></p>
             <p class="text-muted mb-4"><%= @user.address%></p>
             <div class="d-flex justify-content-center mb-2">
@@ -26,8 +28,6 @@
               <button type="button" class="btn btn-outline-primary ms-1">
                 <%= link_to "Add Project", new_project_url(current_user.id) %>
               </button>
-
-
             </div>
           </div>
         </div>
@@ -78,12 +78,9 @@
   </div>
 </section>
 
-
-
 <div class="container">
   <div class="row">
     <% @projects.each do |project|%>
-
       <div class=" wrapper">
         <div class="overviewInfo">
           <div class="projectinfo">
@@ -91,22 +88,22 @@
               <h3>Project name</h3>
               <p><%=project.name %></p>
             </div>
-            <div class="grouptext">
-              <h3>School</h3>
-              <p><%= project.school %></p>
-            </div>
-            <div class="grouptext">
-              <h3>Description</h3>
-              <p><%= project.description %></p>
-            </div>
             <div class="projectImage">
               <img src="https://imgs.search.brave.com/X711qaNbnTVSEiA0UqeMTrvTksMmumuauSr4mGbG87Q/rs:fit:800:665:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvZ2l0aHViL2dp/dGh1Yl9QTkcyMi5w/bmc" alt="product: ps5 controller image">
             </div>
           </div>
+
         </div>
         <div class="projectSpecifications">
           <h1> Description </h1>
-          <p><%= project.description %></p>
+          <div class="buttons-control-card">
+            <p><%= project.description %></p>
+              <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
+               method: :delete, class:'delete_project-btn' %>
+
+              <%= link_to "See project", project_path(project.id), class: 'projectCardBtnShow' %>
+            </button>
+          </div>
         </div>
       </div>
     <% end %>

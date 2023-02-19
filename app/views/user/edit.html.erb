@@ -3,6 +3,10 @@
 
 <h2>Edit user</h2>
 <%= form_with model: @user, url: user_path, method: :patch, local: true, scope: :user do |f| %>
+
+    <%= f.label "Profile photo" %>
+    <%= f.file_field :avatar %>
+
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
     </p>
