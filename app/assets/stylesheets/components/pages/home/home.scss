@@ -5,7 +5,7 @@ body{
 }
 .inglobe-bg-color{
     background-color: blue;
-    height: 120vh;
+    height: 110vh;
 }
 .index-background-color{
     background-image: linear-gradient(to top, #2f00ffda 0%, #1900ff9f 100%);
@@ -210,6 +210,7 @@ body{
 .main-header-section-user{
     display: flex;
     justify-content: center;
+    overflow: hidden;
     .text-header-section-user{
         font-size: 54px;
         font-weight: bold;
@@ -224,7 +225,6 @@ body{
     margin-top: 100px;
     z-index: 1;
     height: 65vh;
-    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
     border-radius: 50px;
     padding: 50px;
@@ -240,24 +240,38 @@ body{
             width: 100%;
             .inglobe-img{
                 min-height: 16vh;
-
                 p{
                     text-align: center;
                 }
             }
+            .inglobe-img:hover{
+                background-color: white;
+                border-radius: 10px 10px 0px 0px;
+                -webkit-border-radius: 10px 10px 0px 0px;
+                -moz-border-radius: 10px 10px 0px 0px;
+                -ms-border-radius: 10px 10px 0px 0px;
+                -o-border-radius: 10px 10px 0px 0px;
+}
             .inglobe-text{
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.548);
+                background-color: rgb(255, 255, 255);
                 border-radius: 0px 0px 20px 20px;
                 -webkit-border-radius: 0px 0px 20px 20px;
                 -moz-border-radius: 0px 0px 20px 20px;
                 -ms-border-radius: 0px 0px 20px 20px;
                 -o-border-radius: 0px 0px 20px 20px;
+                padding: 10px;
+
+                .user-status{
+                    font-size: 15px;
+                    font-weight: 400;
+                }
+
             }
             .inglobe-text p{
                 text-align: center;
                 margin: 0px;
-                color: white;
+                color: black;
                 font-weight: bold;
             }
         }
@@ -321,4 +335,69 @@ body{
         width: 76%;
     }
 
+}
+
+
+// pulse animation
+
+.pulse {
+    z-index: 15;
+    position: absolute;
+    left: 30%;
+    top: 1;
+    transform: translate(-50%, -50%);
+    width: 20%;
+
+    circle {
+      fill: #0004ff;
+      transform: scale(0);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      animation: pulse 2s cubic-bezier(.5,.5,0,1);
+      animation-iteration-count: infinite;
+    }
+
+  }
+
+  @keyframes pulse {
+
+    25% {
+      opacity: 0.4;
+    }
+
+    100% {
+      transform: scale(1);
+    }
+
+}
+.pulse-1{
+    z-index: 15;
+    position: absolute;
+    left: 70%;
+    top: 1;
+    transform: translate(-50%, -50%);
+    width: 20%;
+
+    circle {
+      fill: #0004ff;
+      transform: scale(0);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      animation: pulse 2s cubic-bezier(.5,.5,0,1);
+      animation-iteration-count: infinite;
+      -webkit-animation: pulse 2s cubic-bezier(.5,.5,0,1);
+      animation-iteration-count: infinite;
+    }
+
+  }
+
+  @keyframes pulse {
+
+    25% {
+      opacity: 0.4;
+    }
+
+    100% {
+      transform: scale(1);
+    }
 }

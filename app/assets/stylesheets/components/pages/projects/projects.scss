@@ -26,7 +26,6 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 99;
-    margin: 50px auto;
     width: 800px;
     width: -moz-fit-content;
     width: -webkit-fit-content;
@@ -38,7 +37,7 @@
 }
 
 .menu > li {
- background: #000;
+ background: blue;
  float: left;
  position: relative;
  transform: skewX(25deg);
@@ -54,7 +53,11 @@
 }
 
 .menu li:hover {
- background: #e74c3c;
+ background: #ffffff;
+    a{
+        color: black;
+        text-decoration: none;
+    }
 }
 
 .menu > li > a {
@@ -139,4 +142,8 @@
 
 .menu > li:hover .submenu li:nth-child(odd){
  transform: skewX(-25deg) translateX(-15px);
+ -webkit-transform: skewX(-25deg) translateX(-15px);
+ -moz-transform: skewX(-25deg) translateX(-15px);
+ -ms-transform: skewX(-25deg) translateX(-15px);
+ -o-transform: skewX(-25deg) translateX(-15px);
 }

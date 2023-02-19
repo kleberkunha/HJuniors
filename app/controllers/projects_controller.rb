@@ -31,8 +31,6 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user_id = current_user.id
 
-    @project.creator_name = current_user.first_name
-
     respond_to do |format|
       if @project.save
         format.html do
@@ -95,7 +93,6 @@ class ProjectsController < ApplicationController
       :school,
       :language_id,
       :user_id,
-      :creator_name,
       :avatar
     )
   end

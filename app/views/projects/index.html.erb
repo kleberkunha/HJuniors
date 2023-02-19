@@ -5,8 +5,9 @@
     <input type="text" placeholder="Description word :">
     <input type="text" placeholder="Search by language name :">
   </div>
-
 </div>
+
+
 <div class="container">
   <div class="row">
     <% @projects.each do |project|%>
@@ -28,7 +29,7 @@
               <h6> Description </h6>
             </div>
             <div class="creator_mini_image">
-              <% if project.user.avatar.attached? &&  %>
+             <% if project.user.avatar.attached? &&  %>
                 <img src="<%=(url_for(project.user.avatar))%>" class="rounded-circle"
                 alt="Avatar" />
               <% else %>

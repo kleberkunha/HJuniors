@@ -44,15 +44,31 @@
         </div>
     </div>
 </div>
-<div class="container-fluid div-partition ">
+
+
+
+
+
+<div class="container-fluid div-partition p-0 ">
     <div class="w-100 div-partition-2">
         <div class="wave-1"></div>
     <div class="col-sm-3 search-profile"></div>
 </div>
-
 <div class="main-header-section-user">
     <h1 class="text-header-section-user">List of juniors registered on our website </h1>
+    <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <circle id="Oval" cx="512" cy="512" r="512"></circle>
+    </svg>
+    <svg class="pulse-1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <circle id="Oval" cx="512" cy="512" r="512"></circle>
+    </svg>
 </div>
+
+
+
+
+
+
 <div class="container-fluid section-juniors-list">
     <div class="resize-list-user">
         <div class="row content-users-row">
@@ -72,11 +88,11 @@
                             <% else %>
                                 <div class="card-home">
                                     <div class="inglobe-img">
-                                        <img src="https://i.postimg.cc/sxLSvvHs/professional-women-with-dark-blue-shirt.jpg" class="userimg-index" alt="...">
+                                        <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
                                     </div>
                                     <div class="inglobe-text">
                                         <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                        <p><%= user.status %></p>
+                                        <p class="user-status"><%= user.status %></p>
                                     </div>
                                 </div>
                             <% end %>
