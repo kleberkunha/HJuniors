@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <% @projects.each do |project|%>
+      <div class=" wrapper">
+        <div class="overviewInfo">
+          <div class="projectinfo">
+            <div class="grouptext">
+              <h3>Project name</h3>
+              <p><%=project.name %></p>
+            </div>
+            <div class="projectImage">
+              <img src="https://imgs.search.brave.com/X711qaNbnTVSEiA0UqeMTrvTksMmumuauSr4mGbG87Q/rs:fit:800:665:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvZ2l0aHViL2dp/dGh1Yl9QTkcyMi5w/bmc" alt="product: ps5 controller image">
+            </div>
+          </div>
+        </div>
+        <div class="projectSpecifications">
+          <div class="desc_photo_card_main">
+            <div>
+              <h6> Description </h6>
+            </div>
+            <div class="creator_mini_image">
+             <% if project.user.avatar.attached? &&  %>
+                <img src="<%=(url_for(project.user.avatar))%>" class="rounded-circle"
+                alt="Avatar" />
+              <% else %>
+                <img src="https://imgs.search.brave.com/VAHHkvH0bvJP4p5pRDIW9pwqEIX5yigX_7OWJgLUNPY/rs:fit:486:489:1/g:ce/aHR0cHM6Ly93d3cu/bGVhZHNvdXJjaW5n/LmNvLmluL2ltYWdl/cy91c2VyLnBuZw" class="rounded-circle"
+                alt="Avatar" />
+              <% end %>
+            </div>
+          </div>
+          <div class="description-div-main">
+            <p><%= project.description %></p>
+          </div>
+          <div>
+            <%= link_to "See project", project_path(project.id), class: 'projectCardBtnShow' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

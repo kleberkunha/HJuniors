@@ -1,115 +1,195 @@
-<section class="bg-profile">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-          </ol>
-        </nav>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card mb-4">
-          <div class="card-body text-center">
+<div class="container-fluid main-profile">
+  <div class="col-sm-3 svg-white-profile"></div>
+  <section class="split-profile-header"></section>
+
+  <section class="container-fluid bg-profile">
+    <ul class="list-group-profile">
+      <li class="list-group-item"><%= link_to "Edit profile", edit_user_url(current_user.id) %></li>
+      <li class="list-group-item"><%= link_to "Add Project", new_project_url(current_user.id) %></li>
+      <li class="list-group-item">Message</li>
+      <li class="list-group-item">Porta ac consectetur ac</li>
+      <li class="list-group-item"><a>Vestibulum at eros</a></li>
+    </ul>
+    <div class="container-fluid py-5 d-flex justify-content-center">
+      <div class="row flex-nowrap row-profile-data">
+        <div class="col-sm-2 mr-4">
+          <div class="text-center">
             <% if @user.avatar.attached? %>
-              <img src="<%=(url_for(@user.avatar))%>" class="rounded-circle" style="width: 150px;"
+              <img src="<%=(url_for(@user.avatar))%>" class="profile-user-img"
               alt="Avatar" />
             <% end %>
-            <p class="text-muted mb-1"><%= @user.status%></p>
-            <p class="text-muted mb-4"><%= @user.address%></p>
-            <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-              <button type="button" class="btn btn-outline-primary ms-1">
-                <%= link_to "Edit profile", edit_user_url(current_user.id) %>
-              </button>
-              <button type="button" class="btn btn-outline-primary ms-1">
-                <%= link_to "Add Project", new_project_url(current_user.id) %>
-              </button>
-            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-8">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Full Name</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0"><%= @user.first_name%>&nbsp<%= @user.last_name%></p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Email</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0"><%= @user.email%></p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Phone</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0"><%= @user.phone%></p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Description</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0"><%= @user.description%></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="control-info-user">
+          <section class="customer-logos">
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+            <div class="slide"><img src="https://imgs.search.brave.com/POGW2tbTWlc4x4zgT0wK1GO_erGmhsVcqt9Uo6YICWE/rs:fit:1024:860:1/g:ce/aHR0cHM6Ly9zZW9j/b20uYWdlbmN5L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzAy/L2Jvb3RzdHJhcC1z/dGFjay5wbmc"></div>
+          </section>
+          <div class="col-lg-9">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5 d-flex">
+                    <p class="mb-0">Name :</p>
+                    <p class="text-muted mb-0">&nbsp<%= @user.first_name%>&nbsp<%= @user.last_name%></p>
 
+                  </div>
+                  <div class="col-sm-5 d-flex">
+                    <p class="mb-0">Email : </p>
+                    <p class="text-muted mb-0">&nbsp<%= @user.email%></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3 d-flex">
+                    <p class="mb-0">Phone : </p>
+                    <p class="text-muted mb-0">&nbsp<%= @user.phone%></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <p class="mb-0">Description</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @user.description%></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+</div>
+<section class="main-section-profile-information">
+  <div class="container-fluid information-profile-container-control">
+      <%= render partial: 'components/card_project_profile', format: :erb %>
   </div>
 </section>
 
-<div class="container">
-  <div class="row">
-    <% @projects.each do |project|%>
-      <div class=" wrapper">
-        <div class="overviewInfo">
-          <div class="projectinfo">
-            <div class="grouptext">
-              <h3>Project name</h3>
-              <p><%=project.name %></p>
-            </div>
-            <div class="projectImage">
-              <img src="https://imgs.search.brave.com/X711qaNbnTVSEiA0UqeMTrvTksMmumuauSr4mGbG87Q/rs:fit:800:665:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvZ2l0aHViL2dp/dGh1Yl9QTkcyMi5w/bmc" alt="product: ps5 controller image">
-            </div>
-          </div>
 
-        </div>
-        <div class="projectSpecifications">
-          <h1> Description </h1>
-          <div class="buttons-control-card">
-            <p><%= project.description %></p>
-              <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
-               method: :delete, class:'delete_project-btn' %>
 
-              <%= link_to "See project", project_path(project.id), class: 'projectCardBtnShow' %>
-            </button>
-          </div>
+
+
+
+
+<div id="wrapper">
+      <div id="carousel">
+        <div id="content">
+          <img
+            class="item"
+            src="https://lh3.googleusercontent.com/0OynDYRoCaQWJIUyiOrUVeoub0mLNrDUcUZrJXF2WHQD77o-F_g2EnqZqVevO954WzD7mC5qTg=w512-h512-l90-rj"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/e2WxnnYi-F9oN4e0HdLosbq8nlxezfIlxAze2Ba0zE2JR8Es7j-4tNtXc9atwL51FHpaTMtDgmc=w544-h544-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/u6ldIRFJNC856cVGIRsj8It7kz8_0WSTsbdJEOdwjkzZg0lLnn2fFFdhdkCf85HG9O0s2Ak72g=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/nlaN4QEwrQivvVocTsTmksMAaLdiOYRI6fqWgEvr8HeszJdwyOLWSMtVZQkFP_jIO47g-sbZ=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/ivQK-VEDrumpUKopbgrZKKIP70_i0B0r1LLa7PM1ugqtWJcGDRt8yxndLAVKZn3k5djl6_SS2w=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/mH0AFUazs5cUFTMGmXW-yCIhqSgJHbYqt08OjMgON0-x_Q5nsxhOzVwMHyZJ1e3dziP_ja7_=w544-h544-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/H3yFco2fMxBxlQ7wZ7-_OUA8zO8hmqTU9Fik9_lwA6L5pCP_JcCI0OR2XmdAUPzZS_XsayPDnw=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/URcwKIhfH3rPoeSfAKfsuKTwZzyNUv_f9TiLL3Nddscv-cufGX3kh6G8FzkJHzvgWrxKMu_Y36A=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/BkARURW3Om0LVqlubLu1ziGrfKJrkYpSLEQflgH29lmTooSvXQjsHaWnwH1srAPlIMyJKjWqFIU=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/JMSMnpSyPX1ZTgodYRg5y98ZeZ5AUMBKf2TMRXD88_i6Qkj6-CwfkqmE0X4THMIPVydnYBNVUg=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            class="item"
+            src="https://lh3.googleusercontent.com/0OynDYRoCaQWJIUyiOrUVeoub0mLNrDUcUZrJXF2WHQD77o-F_g2EnqZqVevO954WzD7mC5qTg=w512-h512-l90-rj"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/e2WxnnYi-F9oN4e0HdLosbq8nlxezfIlxAze2Ba0zE2JR8Es7j-4tNtXc9atwL51FHpaTMtDgmc=w544-h544-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/u6ldIRFJNC856cVGIRsj8It7kz8_0WSTsbdJEOdwjkzZg0lLnn2fFFdhdkCf85HG9O0s2Ak72g=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/nlaN4QEwrQivvVocTsTmksMAaLdiOYRI6fqWgEvr8HeszJdwyOLWSMtVZQkFP_jIO47g-sbZ=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/ivQK-VEDrumpUKopbgrZKKIP70_i0B0r1LLa7PM1ugqtWJcGDRt8yxndLAVKZn3k5djl6_SS2w=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/mH0AFUazs5cUFTMGmXW-yCIhqSgJHbYqt08OjMgON0-x_Q5nsxhOzVwMHyZJ1e3dziP_ja7_=w544-h544-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/H3yFco2fMxBxlQ7wZ7-_OUA8zO8hmqTU9Fik9_lwA6L5pCP_JcCI0OR2XmdAUPzZS_XsayPDnw=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/URcwKIhfH3rPoeSfAKfsuKTwZzyNUv_f9TiLL3Nddscv-cufGX3kh6G8FzkJHzvgWrxKMu_Y36A=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/BkARURW3Om0LVqlubLu1ziGrfKJrkYpSLEQflgH29lmTooSvXQjsHaWnwH1srAPlIMyJKjWqFIU=w512-h512-l90-rj"
+            class="item"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/JMSMnpSyPX1ZTgodYRg5y98ZeZ5AUMBKf2TMRXD88_i6Qkj6-CwfkqmE0X4THMIPVydnYBNVUg=w512-h512-l90-rj"
+            class="item"
+          />
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
-
-
-
-
-
+      <button id="prev">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path fill="none" d="M0 0h24v24H0V0z" />
+          <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+        </svg>
+      </button>
+      <button id="next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path fill="none" d="M0 0h24v24H0V0z" />
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+        </svg>
+      </button>
+    </div>

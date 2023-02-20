@@ -1,0 +1,29 @@
+.customer-logos{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .slide img{
+        width: 55%;
+        padding-bottom: 9px;
+    }
+}
+
+
+.list-group-item{
+    z-index: 999;
+}
+
+
+.main-section-profile-information{
+    background-color: blue;
+    color: white;
+    height: 100vh;
+
+    .information-profile-container-control{
+        height: 50vh;
+        margin-right: 17vw;
+    }
+}
+
+
