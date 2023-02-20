@@ -51,3 +51,132 @@
 .btn-signout:hover{
     color: #007bffcc;
 }
+
+
+
+.dropdown-Login{
+    width: 24.7vw;
+    height: 45vh;
+    left: -14.3vw;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dropdown-Register{
+    width: 24.7vw;
+    height: 45vh;
+    left: -20.4vw;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-login-index{
+    background-color: blue;
+}
+.not-remember{
+    margin: 0px;
+}
+.register-user{
+    box-shadow: 0px 0px 15px 0px yellow;
+    border: 1px solid rgba(255, 255, 0, 0.822);
+    border-radius: 50px 0px 50px 0px;
+    margin-top: 10px;
+    -webkit-border-radius: 50px 0px 50px 0px;
+    -moz-border-radius: 50px 0px 50px 0px;
+    -ms-border-radius: 50px 0px 50px 0px;
+    -o-border-radius: 50px 0px 50px 0px;
+}
+
+.form-outline{
+    color: white;
+}
+
+
+// DROP DOWN
+/* Dropdown */
+.submenu {
+    position: absolute;
+    width: 200px;
+    left: 50%; margin-left: -100px;
+    transform: skewX(-25deg);
+    transform-origin: left top;
+   }
+
+   .submenu li {
+    background-color: blue;
+    position: relative;
+    overflow: hidden;
+   }
+
+ /*   .submenu > li > a {
+   } */
+   .submenu-1  > li > a{
+        padding: 1em 2em;
+    }
+   .submenu > li::after {
+    content: '';
+    position: absolute;
+    top: -125%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+   }
+
+   .submenu > li:nth-child(odd){
+    transform: skewX(-25deg) translateX(0);
+    -webkit-transform: skewX(-25deg) translateX(0);
+    -moz-transform: skewX(-25deg) translateX(0);
+    -ms-transform: skewX(-25deg) translateX(0);
+    -o-transform: skewX(-25deg) translateX(0);
+}
+
+   .submenu > li:nth-child(odd) > a {
+    transform: skewX(25deg);
+   }
+
+   .submenu > li:nth-child(odd)::after {
+    right: -50%;
+    transform: skewX(-25deg) rotate(3deg);
+   }
+
+   .submenu > li:nth-child(even){
+    transform: skewX(25deg) translateX(0);
+   }
+
+   .submenu > li:nth-child(even) > a {
+    transform: skewX(-25deg);
+   }
+
+   .submenu > li:nth-child(even)::after {
+    left: -50%;
+    transform: skewX(25deg) rotate(3deg);
+   }
+
+   /* Show dropdown */
+   .submenu,
+   .submenu li {
+    opacity: 0;
+    visibility: hidden;
+   }
+
+   .submenu li {
+    transition: .2s ease transform;
+   }
+
+   .menu > li:hover .submenu,
+   .menu > li:hover .submenu li {
+    opacity: 1;
+    visibility: visible;
+    }
+
+   .menu > li:hover .submenu li:nth-child(even){
+    transform: skewX(25deg) translateX(15px);
+   }
+
+   .menu > li:hover .submenu li:nth-child(odd){
+    transform: skewX(-25deg) translateX(-15px);
+    -webkit-transform: skewX(-25deg) translateX(-15px);
+    -moz-transform: skewX(-25deg) translateX(-15px);
+    -ms-transform: skewX(-25deg) translateX(-15px);
+    -o-transform: skewX(-25deg) translateX(-15px);
+   }

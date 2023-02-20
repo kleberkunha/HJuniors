@@ -1,21 +1,38 @@
-
-
 <ul class="menu cf">
   <li><%= link_to "Home", root_path %></li>
   <li>
     <%= link_to "Projects", projects_path %>
-    <% if user_signed_in? %>
-      <li><%= link_to "Profile", user_index_url(current_user.id) %></li>
-    <% end %>
-    <ul class="submenu">
+    <ul class="submenu-1 submenu">
       <li><a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">App development</a></li>
       <li><a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Marketing</a></li>
     </ul>
   </li>
-  <% if user_signed_in? %>
-    <li><%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete} %></li>
-  <% else%>
-    <li><%= link_to "Login", new_user_session_path %></li>
-    <li><%= link_to "Register", new_user_registration_path %></li>
+  <li>
+    <% if user_signed_in? %>
+      <li><%= link_to "Profile", user_index_url(current_user.id) %></li>
+    <% end %>
+  </li>
+  <% if !user_signed_in? %>
+    <li>
+      <%= link_to "Login", new_user_session_path %>
+      <ul class="submenu submenu-1">
+        <li class="dropdown-Login">
+          <%= render partial: 'components/login_fake', format: :erb %>
+        </li>
+      </ul>
+    </li>
   <% end %>
+  <% if !user_signed_in? %>
+    <li>
+      <%= link_to "Register", new_user_registration_path %>
+      <ul class="submenu submenu-1">
+        <li class="dropdown-Register ">
+          <%= render partial: 'components/login_fake', format: :erb %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+  <% if user_signed_in? %>
+    <li><%= link_to 'Disconnect', destroy_user_session_path, data: {turbo_method: :delete} %></li>
+  <% end%>
 </ul>

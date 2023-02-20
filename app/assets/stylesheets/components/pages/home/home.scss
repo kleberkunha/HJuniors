@@ -194,7 +194,7 @@ body{
         position: absolute;
         bottom: 1px;
         top: 50vh;
-        left: 70vw;
+        left: 78vw;
         z-index: 20;
         transition: rotate(120deg);
         -webkit-transition: rotate(120deg);
@@ -211,6 +211,13 @@ body{
     display: flex;
     justify-content: center;
     overflow: hidden;
+
+    .text-title-vip-list{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+    }
     .text-header-section-user{
         font-size: 54px;
         font-weight: bold;
@@ -224,11 +231,11 @@ body{
     justify-content: center;
     margin-top: 100px;
     z-index: 1;
-    height: 65vh;
+    padding: 50px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
     border-radius: 50px;
-    padding: 50px;
     a{
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -237,21 +244,25 @@ body{
         text-decoration: none;
 
         .card-home{
-            width: 100%;
+            width: 170px;
+            overflow: hidden;
+            border-radius: 20px;
+            background-color: rgb(31, 31, 31);
             .inglobe-img{
-                min-height: 16vh;
+                width: 100%;
+                height: 220px;
+                max-height: 250px;
+                min-height: 100px;
+                background-size: cover;
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
                 p{
                     text-align: center;
                 }
             }
-            .inglobe-img:hover{
-                background-color: white;
-                border-radius: 10px 10px 0px 0px;
-                -webkit-border-radius: 10px 10px 0px 0px;
-                -moz-border-radius: 10px 10px 0px 0px;
-                -ms-border-radius: 10px 10px 0px 0px;
-                -o-border-radius: 10px 10px 0px 0px;
-}
             .inglobe-text{
                 width: 100%;
                 background-color: rgb(255, 255, 255);
@@ -274,6 +285,11 @@ body{
                 color: black;
                 font-weight: bold;
             }
+        }
+        .card-home:hover{
+            border: 1px solid yellow;
+            margin: -1px;
+            z-index: 99;
         }
     }
     a:hover{

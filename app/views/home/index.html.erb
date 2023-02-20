@@ -47,15 +47,16 @@
 
 
 
-
-
 <div class="container-fluid div-partition p-0 ">
     <div class="w-100 div-partition-2">
         <div class="wave-1"></div>
     <div class="col-sm-3 search-profile"></div>
 </div>
 <div class="main-header-section-user">
-    <h1 class="text-header-section-user">List of juniors registered on our website </h1>
+    <div class="text-title-vip-list">
+        <h1 class="text-header-section-user">List of juniors registered on our website</h1>
+        <p>Mollit ea et anim qui consequat cillum eiusmod exercitation adipisicing mollit adipisicing pariatur aliqua.</p>
+    </div>
     <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
     </svg>
@@ -64,25 +65,20 @@
     </svg>
 </div>
 
-
-
-
-
-
 <div class="container-fluid section-juniors-list">
     <div class="resize-list-user">
         <div class="row content-users-row">
             <% @users.each do |user|%>
-                <div class="col-sm-2">
+                <div class="col-sm-2 m-2 card-border">
                     <%= link_to user_index_url(user.id) do %>
                             <% if user.avatar.attached? %>
-                                <div class="card">
+                                <div class="card-home">
                                     <div class="inglobe-img">
-                                        <img src="<%=(url_for(user.avatar))%>" class="userimg-index" alt="...">
+                                        <%= image_tag user.avatar, class: 'userimg-index' %>
                                     </div>
-                                    <div id="container">
-                                        <p id="name"><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                        <p id="exp"><%= user.status %></p>
+                                    <div class="inglobe-text">
+                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                                        <p class="user-status"><%= user.status %></p>
                                     </div>
                                 </div>
                             <% else %>
@@ -102,7 +98,5 @@
         </div>
     </div>
 </div>
-
-
 
 

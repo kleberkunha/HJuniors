@@ -9,14 +9,13 @@
         </nav>
       </div>
     </div>
-
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
             <% if @user.avatar.attached? %>
               <img src="<%=(url_for(@user.avatar))%>" class="rounded-circle" style="width: 150px;"
-  alt="Avatar" />
+              alt="Avatar" />
             <% end %>
             <p class="text-muted mb-1"><%= @user.status%></p>
             <p class="text-muted mb-4"><%= @user.address%></p>
