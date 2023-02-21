@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Degrees</h1>
+
+<div id="degrees">
+  <% @degrees.each do |degree| %>
+    <%= render degree %>
+    <p>
+      <%= link_to "Show this degree", degree %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New degree", new_degree_path %>

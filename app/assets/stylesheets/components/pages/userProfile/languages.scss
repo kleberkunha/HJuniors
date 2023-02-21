@@ -9,21 +9,18 @@
     }
 }
 
-
 .list-group-item{
     z-index: 999;
 }
 
-
 .main-section-profile-information{
-    background-color: blue;
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 2%, rgba(29,9,121,1) 83%, rgba(2,0,36,1) 100%);
     color: white;
-    height: 100vh;
 
     .information-profile-container-control{
         height: 50vh;
         margin-right: 17vw;
     }
 }
-
 

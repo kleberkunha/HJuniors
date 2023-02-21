@@ -9,7 +9,7 @@
   </li>
   <li>
     <% if user_signed_in? %>
-      <li><%= link_to "Profile", user_index_url(current_user.id) %></li>
+      <li><%= link_to "Profile", user_path(current_user.id) %></li>
     <% end %>
   </li>
   <% if !user_signed_in? %>

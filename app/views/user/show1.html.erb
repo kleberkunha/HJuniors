@@ -1,0 +1,167 @@
+<div class="container-fluid main-profile">
+  <div class="col-sm-3 svg-white-profile"></div>
+
+  <section class="split-profile-header"></section>
+
+  <section class="container-fluid bg-profile">
+    <div class="col-sm-2 mr-4">
+      <div class="text-center">
+        <% if @user.avatar.attached? %>
+          <img src="<%=(url_for(@user.avatar))%>" class="profile-user-img"
+          alt="Avatar" />
+        <% end %>
+      </div>
+    </div>
+    <div class="container-fluid py-5 d-flex justify-content-center">
+      <div class="row flex-nowrap row-profile-data">
+        <div class="control-info-user">
+          <div class="col-lg-9">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+
+                  <div class="col-sm-5 d-flex">
+                    <p class="mb-0">Name :</p>
+                    <p class="text-muted mb-0">&nbsp<%= @user.first_name%>&nbsp<%= @user.last_name%></p>
+
+                  </div>
+                  <div class="col-sm-5 d-flex">
+                    <p class="mb-0">Email : </p>
+                    <p class="text-muted mb-0">&nbsp<%= @user.email%></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3 d-flex">
+                    <p class="mb-0">Phone : </p>
+                    <p class="text-muted mb-0">&nbsp<%= @user.phone%></p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <p class="mb-0">Description</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @user.description%></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <%= render partial: 'user/edit', format: :erb %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <ul class="list-group-profile">
+      <li class="list-group-item"><%= link_to "Edit profile", edit_user_url(current_user.id) %></li>
+      <li class="list-group-item"><%= link_to "Add Project", new_project_url(current_user.id) %></li>
+      <li class="list-group-item"><%= link_to "Add Degree", degrees_url %></li>
+      <li class="list-group-item">
+        <button class="btn btn-primary" onclick="edit_drop()" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Edit
+        </button>
+      </li>
+
+      <li class="list-group-item"><a>Vestibulum at eros</a></li>
+    </ul>
+  </section>
+</div>
+<section class="gallery-diploma">
+  <div class="container-lg control-gallery">
+    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <% @degrees.each do |degree| %>
+        <% if @user.avatar.attached? %>
+          <div class="col image-card-with-button-delete">
+            <img src="<%=(url_for(degree.avatar))%>" class="gallery-item" alt="gallery">
+            <% if current_user.id === degree.user_id%>
+              <%= link_to 'Delete', degree_path(degree.id),data: { "turbo-method": :delete },
+              method: :delete, class:'btn-delete-degree-profile' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img src="https://imgs.search.brave.com/tPm9flygpBvPBpR0vg0q_38H6Yo1xZrICOtNh-CCFlY/rs:fit:1100:778:1/g:ce/aHR0cHM6Ly9zdGF0/aWMxMC5nZXN0aW9u/YXdlYi5jYXQvMTI4/NS9wd2ltZy0xMTAw/L2RpcGxvbWEtZWRp/dGFibGUuanBn" class="modal-img" alt="modal img">
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<section class="main-section-profile-information">
+  <div class="container-fluid information-profile-container-control">
+    <%= render partial: 'components/card_project_profile', format: :erb %>
+  </div>
+</section>
+
+<div class="container-fluid overflow-card-profile-list">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-5 pb-4">
+      <h3>Projects</h3>
+      <ul class="list-group">
+        <% @projects.each do |project|%>
+          <li class="list-group-item d-flex justify-content-between">
+            <%= project.name%>
+            <div class="project-control-buttons">
+              <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
+              method: :delete, class:'' %>
+              <%= link_to 'show', project_path(project.id) %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-lg-5 pb-4">
+      <h3>Jobs</h3>
+      <ul class="list-group">
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

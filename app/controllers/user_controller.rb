@@ -1,15 +1,22 @@
 class UserController < ApplicationController
-  def index
-    @user = User.find(current_user.id)
+  before_action :authenticate_user!
 
-    @projects = Project.where(user_id: current_user.id)
+  def index
+  end
+
+  def find_user
+    User.find(params[:id])
   end
 
   def show
+    @user = User.find(current_user.id)
+    @projects = Project.where(user_id: current_user.id)
+
+    @degrees = Degree.where(user_id: current_user.id)
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = find_user
   end
 
   def user_projects
@@ -19,7 +26,7 @@ class UserController < ApplicationController
     @user = User.find(params[:id])
     @user.avatar.attach(params[:avatar])
     if @user.update(user_params)
-      redirect_to user_index_url(current_user.id)
+      redirect_to user_url(current_user.id)
       flash[:notice] = "Your profile has been updated."
     else
       redirect_to root_path

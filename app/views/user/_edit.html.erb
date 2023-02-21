@@ -1,11 +1,12 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<%= form_with model: @user, url: user_url(current_user.id), method: :patch, local: true, scope: :user do |f| %>
+    <div class="">
+      <% if @user.avatar.attached? %>
+        <img src="<%=(url_for(@user.avatar))%>" class="edit-img-user"
+        alt="Avatar" />
+      <% end %>
+      <%= f.file_field :avatar %>
+    </div>
 
-<h2>Edit user</h2>
-<%= form_with model: @user, url: user_path, method: :patch, local: true, scope: :user do |f| %>
-
-    <%= f.label "Profile photo" %>
-    <%= f.file_field :avatar %>
 
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>

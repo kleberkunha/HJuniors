@@ -1,28 +1,31 @@
 .main-profile{
-    background-color: blue;
-    .split-profile-header{
-        height: 10vh;
+  .split-profile-header{
+    height: 10vh;
+  }
+  .bg-profile{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .list-group-profile{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0px;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
     }
-    .bg-profile{
-        .list-group-profile{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 0px;
-            border-radius: 20px;
-            -webkit-border-radius: 20px;
-            -moz-border-radius: 20px;
-            -ms-border-radius: 20px;
-            -o-border-radius: 20px;
-        }
-    }
+  }
 }
 
 .row-profile-data{
-    display: flex;
-    justify-content: center;
-    width: 90%;
-    z-index: 19;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  z-index: 19;
 }
 
 .control-info-user{
@@ -30,8 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: -24vh;
-    width: 80%;
+    width: 100%;
 
     .slider{
         width: 100%;
@@ -41,30 +43,31 @@
 }
 
 .profile-user-img{
-    width: 100%;
-    height: 30.8vh;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+}
+
+.fucking{
+  visibility: hidden;
 }
 
 .svg-white-profile{
     display: flex;
     justify-content: flex-end;
+    z-index: 5;
     &::after{
         content: "";
         width: 1800px;
         height: 1500px;
-        background-image: url("https://i.postimg.cc/t42ztvnS/lines-Profile.png");
+        background-image: url("https://i.postimg.cc/gJrWM6FL/bg-svg.png");
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
         position: absolute;
         bottom: 1px;
-        top: -14vh;
-        left: 1vw;
+        top: -77vh;
+        left: -1vw;
         transition: rotate(120deg);
         -webkit-transition: rotate(120deg);
         -moz-transition: rotate(120deg);
@@ -73,7 +76,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 20;
     }
 }
 
@@ -90,6 +92,7 @@
     overflow: auto;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    padding: 40px;
   }
 
   #carousel::-webkit-scrollbar {
@@ -137,3 +140,40 @@
     background: green;
   }
 
+///GALERIA
+img{
+	max-width: 100%;
+}
+.gallery-diploma{
+	background-color: #dbddf1;
+	padding: 80px 0;
+}
+.gallery-diploma img{
+	background-color: #ffffff;
+	padding: 5px;
+	width: 100%;
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+#gallery-modal .modal-img{
+	width: 100%;
+}
+
+
+/////  USER PROFILE
+
+.overflow-card-profile-list{
+  background: rgb(0,212,255);
+  background: linear-gradient(90deg, rgba(0,212,255,1) 2%, rgba(29,9,121,1) 83%, rgba(2,0,36,1) 100%);
+
+}
+
+.project-control-buttons{
+  display: flex;
+
+  a{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
