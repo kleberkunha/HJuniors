@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @coding_language %>
+
+<div>
+  <%= link_to "Edit this coding language", edit_coding_language_path(@coding_language) %> |
+  <%= link_to "Back to coding languages", coding_languages_path %>
+
+  <%= button_to "Destroy this coding language", @coding_language, method: :delete %>
+</div>

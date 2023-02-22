@@ -6,3 +6,24 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+
+.edit-form-control-1{
+    text-align: center;
+    justify-content: space-around;
+    p{
+        input{
+            outline: none;
+            padding: 5px;
+        }
+        textarea{
+            width: 100%;
+        }
+    }
+}
+.edit-form-control-2{
+    display: flex;
+    justify-content: space-around;
+}
+.description-edit-area p textarea{
+    width: 100% ;
+}

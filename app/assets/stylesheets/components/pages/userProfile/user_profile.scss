@@ -48,14 +48,14 @@
   padding-bottom: 10px;
 }
 
-.fucking{
+.user_hide_info{
   visibility: hidden;
 }
 
 .svg-white-profile{
     display: flex;
     justify-content: flex-end;
-    z-index: 5;
+    z-index: -5;
     &::after{
         content: "";
         width: 1800px;

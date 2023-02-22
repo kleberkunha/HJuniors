@@ -8,11 +8,19 @@ class UserController < ApplicationController
     User.find(params[:id])
   end
 
+  def get_languages
+    url = ""
+  end
+
   def show
     @user = User.find(current_user.id)
     @projects = Project.where(user_id: current_user.id)
 
     @degrees = Degree.where(user_id: current_user.id)
+
+    @coding_language = CodingLanguage.new
+
+    @languages_user = CodingLanguage.where(user_id: current_user.id)
   end
 
   def edit
