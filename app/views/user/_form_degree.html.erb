@@ -1,5 +1,5 @@
-<%= form_with(model: degree) do |form| %>
-  <% if degree.errors.any? %>
+<%= form_with(model: @degree) do |form| %>
+  <% if @degree.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(degree.errors.count, "error") %> prohibited this degree from being saved:</h2>
 

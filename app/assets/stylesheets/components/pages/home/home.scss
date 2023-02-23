@@ -3,15 +3,7 @@ body{
     height: 100vh;
     overflow-x: hidden;
 }
-.inglobe-bg-color{
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 2%, rgba(29,9,121,1) 83%, rgba(2,0,36,1) 100%);
-    height: 110vh;
-}
-.index-background-color{
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 2%, rgba(29,9,121,1) 83%, rgba(2,0,36,1) 100%);
-}
+
 
 .headerHome{
     z-index: 0;
@@ -89,6 +81,7 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        color: black;
     }
 }
 
@@ -319,8 +312,6 @@ body{
     height: 100vh;
     left: 50%;
     top: 50%;
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 2%, rgba(29,9,121,1) 83%, rgba(2,0,36,1) 100%);
     overflow: hidden;
 
   .wave-1 {

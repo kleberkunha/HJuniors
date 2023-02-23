@@ -1,6 +1,6 @@
 <div class="col-sm-3 svg-white-profile"></div>
 <div class="container bootstrap snippets bootdey pt-5">
-    <div id="wrapper">
+    <div id="wrapper d-flex justify-content-center">
         <div id="carousel">
             <div id="content">
                 <% @languages_user.each do |language|%>
@@ -13,29 +13,7 @@
                 <% end %>
             </div>
         </div>
-        <button id="prev">
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-            </svg>
-        </button>
-        <button id="next">
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-            </svg>
-        </button>
-        </div>
+    </div>
     <div class="row">
         <div class="profile-nav col-md-3">
             <div class="panel">
@@ -50,11 +28,10 @@
 
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
-                        <li class="button-edit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            <a href="#"><i class="fa fa-user"></i>Edit</a>
-                        </li>
-                    <li><%= link_to 'Add language', new_coding_language_path %></li>
-                    <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    <li class="button-edit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <a href="#"><i class="fa fa-user"></i>Edit</a>
+                    </li>
+                    <li><%= link_to "Add Project", new_project_url(current_user.id) %></li>
                 </ul>
             </div>
         </div>
@@ -64,7 +41,6 @@
                     <%= @user.description%>
                 </div>
                 <div class="collapse" id="collapseExample">
-
                     <div class="card card-body">
                         <div class="border mb-2">
                             <% @languages_user.each do |language|%>
@@ -111,7 +87,7 @@
                     <div class="col-md-6 mt-3">
                         <div class="panel">
                             <h1 class="text-center">Projects</h1>
-                            <ul class="list-group">
+                            <ul class="list-group  text-white">
                                 <% @projects.each do |project|%>
                                 <li class="list-group-item d-flex justify-content-between">
                                     <%= project.name%>
@@ -143,6 +119,7 @@
         </div>
     </div>
 </div>
+<%= render partial: 'user/form_degree', format: :erb %>
 <section class="gallery-diploma">
   <div class="container-lg control-gallery">
     <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
@@ -160,3 +137,10 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
