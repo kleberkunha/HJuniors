@@ -15,6 +15,8 @@ class UserController < ApplicationController
     @degree = Degree.new
     @degrees = Degree.where(user_id: current_user.id)
 
+    @jobs = Job.where(user_id: current_user.id)
+
     @coding_language = CodingLanguage.new
 
     @languages_user = CodingLanguage.where(user_id: current_user.id)
@@ -50,6 +52,7 @@ class UserController < ApplicationController
       :role,
       :address,
       :status,
+      :country,
       :avatar
     )
   end

@@ -32,6 +32,7 @@
                         <a href="#"><i class="fa fa-user"></i>Edit</a>
                     </li>
                     <li><%= link_to "Add Project", new_project_url(current_user.id) %></li>
+                    <li><%= link_to "Add JOB", new_job_url %></li>
                 </ul>
             </div>
         </div>
@@ -65,7 +66,7 @@
                             <p><span>Last Name </span>: <%= @user.last_name%></p>
                         </div>
                         <div class="bio-row">
-                            <p><span>Country </span>: Australia</p>
+                            <p><span>Country </span>: <%= @user.country %></p>
                         </div>
                         <div class="bio-row">
                             <p><span>Birthday</span>: 13 July 1983</p>
@@ -89,7 +90,7 @@
                             <h1 class="text-center">Projects</h1>
                             <ul class="list-group  text-white">
                                 <% @projects.each do |project|%>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item d-flex justify-content-between color-black">
                                     <%= project.name%>
                                     <div class="project-control-buttons">
                                     <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
@@ -104,13 +105,17 @@
                     <div class="col-md-6 mt-3">
                         <div class="panel">
                             <h1 class="text-center">Jobs</h1>
-                            <ul class="list-group">
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Morbi leo risus</li>
-                                <li class="list-group-item">Porta ac consectetur ac</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                            <ul class="list-group  text-white">
+                                <% @jobs.each do |job|%>
+                                <li class="list-group-item d-flex justify-content-between color-black">
+                                    <%= job.name%>
+                                    <div class="project-control-buttons">
+                                    <%= link_to 'Delete', jobs_path(job.id),data: { "turbo-method": :delete },
+                                    method: :delete, class:'' %>
+                                    <%= link_to 'show', jobs_path(job.id) %>
+                                    </div>
+                                </li>
+                                <% end %>
                             </ul>
                         </div>
                     </div>
@@ -137,10 +142,4 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
 

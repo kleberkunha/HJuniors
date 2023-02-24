@@ -1,24 +1,30 @@
-.customer-logos{
+.customer-logos {
     width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .slide img{
+
+    .slide img {
         width: 55%;
         padding-bottom: 9px;
     }
 }
 
-.list-group-item{
+.list-group-item {
     z-index: 999;
+    color: rgb(0, 0, 0);
 }
 
-.main-section-profile-information{
-    color: white;
+.main-section-profile-information {
+    color: rgb(0, 0, 0);
 
-    .information-profile-container-control{
+    .information-profile-container-control {
         height: 50vh;
         margin-right: 17vw;
     }
 }
+
+
+
+
 

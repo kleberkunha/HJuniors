@@ -9,6 +9,8 @@ gem 'faker'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'sprockets-rails'
 gem 'sass-rails'
+gem 'dotenv-rails'
+gem 'city-state'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
@@ -56,7 +58,7 @@ gem "bootsnap", require: false
  gem "image_processing", "~> 1.2"
 
 group :production do
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 group :development, :test do

@@ -86,4 +86,5 @@ production:
   <<: *default
   database: HJuniors_production
   username: HJuniors
+  host: heroku
   password: <%= ENV["HJUNIORS_DATABASE_PASSWORD"] %>
