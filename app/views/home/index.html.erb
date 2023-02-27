@@ -70,31 +70,31 @@
         <div class="row content-users-row">
             <% @users.each do |user|%>
                 <div class="col-sm-2 m-2 card-border">
-                    <%= link_to user_path(user.id) do %>
-                            <% if user.avatar.attached? %>
-                                <div class="card-home">
-                                    <div class="inglobe-img">
-                                        <%= image_tag user.avatar, class: 'userimg-index' %>
-                                    </div>
-                                    <div class="inglobe-text">
-                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                        <p class="user-status"><%= user.status %></p>
-                                        <p class="user-status"><%= user.id %></p>
-                                    </div>
+                    <%= link_to user_path(user) do %>
+                        <% if user.avatar.attached? %>
+                            <div class="card-home">
+                                <div class="inglobe-img">
+                                    <%= image_tag user.avatar, class: 'userimg-index' %>
                                 </div>
-                            <% else %>
-                                <div class="card-home">
-                                    <div class="inglobe-img">
-                                        <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
-                                    </div>
-                                    <div class="inglobe-text">
-                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                        <p class="user-status"><%= user.status %></p>
-                                    </div>
+                                <div class="inglobe-text">
+                                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                                    <p class="user-status"><%= user.status %></p>
+                                    <p class="user-status"><%= user.id %></p>
                                 </div>
-                            <% end %>
+                            </div>
+                        <% else %>
+                            <div class="card-home">
+                                <div class="inglobe-img">
+                                    <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
+                                </div>
+                                <div class="inglobe-text">
+                                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                                    <p class="user-status"><%= user.status %></p>
+                                </div>
+                            </div>
+                        <% end %>
                     <% end %>
-                    </div>
+                </div>
             <% end %>
         </div>
     </div>
