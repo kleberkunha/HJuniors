@@ -72,7 +72,8 @@ class ProjectsController < ApplicationController
     @project.destroy
     respond_to do |format|
       format.html do
-        redirect_to projects_path, notice: "Project was successfully destroyed."
+        redirect_to user_url(current_user),
+                    notice: "Project was successfully destroyed."
       end
       format.json { head :no_content }
     end

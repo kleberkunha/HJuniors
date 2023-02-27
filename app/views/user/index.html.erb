@@ -1,0 +1,109 @@
+
+
+
+
+
+
+
+
+
+<%= form_tag(user_index_path, :method => "get", class: 'navbar-form navbar-left') do %>
+    <div class="container-fluid mt-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-9">
+                <div class="card p-4 mt-3">
+                    <h3 class="heading mt-5 text-center">Hi! How can we help You?</h3>
+                    <div class="d-flex justify-content-center px-5">
+                        <div class="search d-flex justify-content-center">
+                            <%= search_field_tag :search, "Hello", class: "w-75"%>
+                            <%= submit_tag("Search", name: nil) %>
+                        </div>
+                    </div>
+                    <div class="row mt-4 g-1 px-4 mb-5">
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <img src="https://i.imgur.com/Mb8kaPV.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Account</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <img src="https://i.imgur.com/ueLEPGq.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Payments</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Delivery</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <img src="https://i.imgur.com/D0Sm15i.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Product</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Return</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <img src="https://i.imgur.com/YLsQrn3.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Guarantee</span> </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+
+<%if @users_found === nil %>
+    <% flash[:alert] = "User not found !"%>
+<% else %>
+    <div class="container-fluid section-juniors-list">
+        <div class="resize-list-user">
+            <div class="row content-users-row">
+                <% @users_found.each do |user|%>
+                    <div class="col-sm-2 m-2 card-border">
+                        <%= link_to user_path(user.id) do %>
+                            <% if user.avatar.attached? %>
+                                <div class="card-home">
+                                    <div class="inglobe-img">
+                                        <%= image_tag user.avatar, class: 'userimg-index' %>
+                                    </div>
+                                    <div class="inglobe-text">
+                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                                        <p class="user-status"><%= user.status %></p>
+                                        <p class="user-status"><%= user.id %></p>
+                                    </div>
+                                </div>
+                            <% else %>
+                                <div class="card-home">
+                                    <div class="inglobe-img">
+                                        <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
+                                    </div>
+                                    <div class="inglobe-text">
+                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                                        <p class="user-status"><%= user.status %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
+                        </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+
+
+
+

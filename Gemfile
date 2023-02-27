@@ -11,6 +11,11 @@ gem 'sprockets-rails'
 gem 'sass-rails'
 gem 'dotenv-rails'
 gem 'city-state'
+gem "font-awesome-sass", "~> 6.3.0"
+gem 'pg_search'
+gem "table_print"
+
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"

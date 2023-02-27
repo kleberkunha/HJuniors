@@ -3,9 +3,12 @@
   <li>
     <%= link_to "Projects", projects_path %>
     <ul class="submenu-1 submenu">
-      <li><a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">App development</a></li>
-      <li><a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Marketing</a></li>
+      <li><a href="#">App development</a></li>
+      <li><a href="#">Marketing</a></li>
     </ul>
+  </li>
+  <li>
+    <%= link_to "Profiles", user_index_path %>
   </li>
   <li>
     <% if user_signed_in? %>
@@ -15,20 +18,20 @@
   <% if !user_signed_in? %>
     <li>
       <%= link_to "Login", new_user_session_path %>
-      <ul class="submenu submenu-1">
+     <%#  <ul class="submenu submenu-1">
         <li class="dropdown-Login">
           <%= render partial: 'components/login_fake', format: :erb %>
-        </li>
-      </ul>
+    <%#      </li>
+      </ul> %>
     </li>
   <% end %>
   <% if !user_signed_in? %>
     <li>
       <%= link_to "Register", new_user_registration_path %>
       <ul class="submenu submenu-1">
-        <li class="dropdown-Register ">
+        <%# <li class="dropdown-Register ">
           <%= render partial: 'components/login_fake', format: :erb %>
-        </li>
+        <%# </li> %>
       </ul>
     </li>
   <% end %>

@@ -1,15 +1,20 @@
 class UserController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def index
-  end
+    if params[:search].present?
+      @users_found = User.global_search(params[:search])
+    end
 
-  def find_user
-    User.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: { users_found: @users_found } }
+    end
   end
 
   def show
     @user = User.find(current_user.id)
+
     @projects = Project.where(user_id: current_user.id)
 
     @degree = Degree.new
@@ -53,7 +58,8 @@ class UserController < ApplicationController
       :address,
       :status,
       :country,
-      :avatar
+      :avatar,
+      :data_users
     )
   end
 end

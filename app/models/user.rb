@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PgSearch::Model
+
   has_many :projects, dependent: :delete_all
   has_many :degrees
   has_many :coding_languages
@@ -11,4 +13,14 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+
+  scope :sorted, -> { order(last_name: :asc) }
+
+  pg_search_scope :global_search,
+                  against: %i[first_name last_name],
+                  using: {
+                    tsearch: {
+                      prefix: true
+                    }
+                  }
 end

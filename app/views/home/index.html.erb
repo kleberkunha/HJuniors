@@ -70,7 +70,7 @@
         <div class="row content-users-row">
             <% @users.each do |user|%>
                 <div class="col-sm-2 m-2 card-border">
-                    <%= link_to user_url(user.id) do %>
+                    <%= link_to user_path(user.id) do %>
                             <% if user.avatar.attached? %>
                                 <div class="card-home">
                                     <div class="inglobe-img">
@@ -79,6 +79,7 @@
                                     <div class="inglobe-text">
                                         <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
                                         <p class="user-status"><%= user.status %></p>
+                                        <p class="user-status"><%= user.id %></p>
                                     </div>
                                 </div>
                             <% else %>
@@ -98,5 +99,6 @@
         </div>
     </div>
 </div>
+
 
 
