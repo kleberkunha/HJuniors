@@ -24,6 +24,8 @@ class CodingLanguagesController < ApplicationController
     @coding_language = CodingLanguage.new(coding_language_params)
     @coding_language.user_id = current_user.id
 
+    user = User.find(current_user.id)
+    user.coding_language_id = @coding_language.id
     respond_to do |format|
       if @coding_language.save
         format.html do

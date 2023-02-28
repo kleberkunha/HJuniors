@@ -13,7 +13,7 @@
   <div class="text-center d-flex">
     <%= form.file_field :img %>
     <div class="pb-2 pt-2">
-      <%= form.text_field :name, placeholder: "language name" %>
+      <%= form.text_field :name.downcase, placeholder: "language name" %>
       <%= form.submit "Add " %>
     </div>
   </div>

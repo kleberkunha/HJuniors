@@ -2,17 +2,13 @@
   <li><%= link_to "Home", root_path %></li>
   <li>
     <%= link_to "Projects", projects_path %>
-    <ul class="submenu-1 submenu">
-      <li><a href="#">App development</a></li>
-      <li><a href="#">Marketing</a></li>
-    </ul>
   </li>
   <li>
     <%= link_to "Profiles", user_index_path %>
   </li>
   <li>
     <% if user_signed_in? %>
-      <li><%= link_to "Profile", user_path(current_user.id) %></li>
+      <li><%= link_to "My Profile", user_path(current_user.id) %></li>
     <% end %>
   </li>
   <% if !user_signed_in? %>

@@ -14,6 +14,7 @@ gem 'city-state'
 gem "font-awesome-sass", "~> 6.3.0"
 gem 'pg_search'
 gem "table_print"
+gem 'ransack'
 
 
 

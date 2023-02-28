@@ -1,61 +1,34 @@
-
-
-
-
-
-
-
-
-
 <%= form_tag(user_index_path, :method => "get", class: 'navbar-form navbar-left') do %>
     <div class="container-fluid mt-4">
         <div class="row d-flex justify-content-center">
             <div class="col-md-9">
                 <div class="card p-4 mt-3">
-                    <h3 class="heading mt-5 text-center">Hi! How can we help You?</h3>
+                    <h1 class="text-dark mt-5 pb-5 text-center">Find here Juniors with diferent experiences, fell free to search by languages !</h1>
                     <div class="d-flex justify-content-center px-5">
                         <div class="search d-flex justify-content-center">
-                            <%= search_field_tag :search, "", class: "w-75"%>
+                            <%= search_field_tag :first_name, nil, class: "w-75", disable: true%>
                             <%= submit_tag("Search", name: nil) %>
                         </div>
                     </div>
-                    <div class="row mt-4 g-1 px-4 mb-5">
-                    <div class="col-md-2">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center">
-                            <img src="https://i.imgur.com/Mb8kaPV.png" width="50">
-                            <div class="text-center mg-text"> <span class="mg-text">Account</span> </div>
+                    <div class="row d-flex justify-content-center mt-5">
+                        <div class="col-md-1 language-image">
+                            <%= link_to image_tag('https://imgs.search.brave.com/R3ZNAgtGeMgZOwS3T6UlygC9dRE6Ghfk0hyj2vCbTU0/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9zMy5h/bWF6b25hd3MuY29t/L21lZGlhLXAuc2xp/ZC5lcy91cGxvYWRz/LzM2NTQ2OC9pbWFn/ZXMvMTgxMjE4NS9I/VE1MNV9Mb2dvXzUx/Mi5wbmc'), {:controller => "user", :action => "index", :search_language_html => "html"} %>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center">
-                            <img src="https://i.imgur.com/ueLEPGq.png" width="50">
-                            <div class="text-center mg-text"> <span class="mg-text">Payments</span> </div>
+                        <div class="col-md-1 language-image">
+                                <%= link_to image_tag('https://imgs.search.brave.com/xoAtCKupPFsAdzzEXzMmue545WdG_2jBhWY7moHb2j8/rs:fit:640:750:1/g:ce/aHR0cHM6Ly8zY29u/MTQuYml6L2pzL19k/YXRhL19jb25maWcv/anMucG5n'), {:controller => "user", :action => "index", :search_language_js => "javascript"} %>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center">
-                            <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
-                            <div class="text-center mg-text"> <span class="mg-text">Delivery</span> </div>
+                        <div class="col-md-1 language-image">
+                                <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center">
-                            <img src="https://i.imgur.com/D0Sm15i.png" width="50">
-                            <div class="text-center mg-text"> <span class="mg-text">Product</span> </div>
+                        <div class="col-md-1 language-image">
+                                <img src="https://i.imgur.com/D0Sm15i.png" width="50">
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center">
-                            <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
-                            <div class="text-center mg-text"> <span class="mg-text">Return</span> </div>
+                        <div class="col-md-1 language-image">
+                                <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center">
-                            <img src="https://i.imgur.com/YLsQrn3.png" width="50">
-                            <div class="text-center mg-text"> <span class="mg-text">Guarantee</span> </div>
+                        <div class="col-md-1 language-image">
+                                <img src="https://i.imgur.com/YLsQrn3.png" width="50">
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -64,46 +37,5 @@
 <% end %>
 
 
-<%if @users_found === nil %>
-    <% flash[:alert] = "User not found !"%>
-<% else %>
-    <div class="container-fluid section-juniors-list">
-        <div class="resize-list-user">
-            <div class="row content-users-row">
-                <% @users_found.each do |user|%>
-                    <div class="col-sm-2 m-2 card-border">
-                        <%= link_to user_path(user.id) do %>
-                            <% if user.avatar.attached? %>
-                                <div class="card-home">
-                                    <div class="inglobe-img">
-                                        <%= image_tag user.avatar, class: 'userimg-index' %>
-                                    </div>
-                                    <div class="inglobe-text">
-                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                        <p class="user-status"><%= user.status %></p>
-                                        <p class="user-status"><%= user.id %></p>
-                                    </div>
-                                </div>
-                            <% else %>
-                                <div class="card-home">
-                                    <div class="inglobe-img">
-                                        <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
-                                    </div>
-                                    <div class="inglobe-text">
-                                        <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                        <p class="user-status"><%= user.status %></p>
-                                    </div>
-                                </div>
-                            <% end %>
-                        <% end %>
-                        </div>
-                <% end %>
-            </div>
-        </div>
-    </div>
-<% end %>
-
-
-
-
+<%= render partial: 'user/all_users', format: :erb %>
 
