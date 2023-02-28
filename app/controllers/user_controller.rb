@@ -36,10 +36,10 @@ class UserController < ApplicationController
   end
 
   def index
-    if input_verification
-      search_by_language_js if params.key?(:search_language_js)
-    elsif params[:first_name] === ""
+    if params[:first_name] === ""
       @users_found = User.all
+    elsif input_verification
+      search_by_language_js if params.key?(:search_language_js)
     end
     respond_to do |format|
       format.html
