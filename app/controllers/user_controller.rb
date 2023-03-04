@@ -1,50 +1,10 @@
 class UserController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
-  def search_by_language_html
-    @get_language = CodingLanguage.where(name: params[:search_language_html])
-    @users_found = []
-
-    @get_language.each do |value|
-      @users_with_language = User.find(value.user_id)
-
-      @users_found << @users_with_language
-    end
-    @users_found
-  end
-
-  def search_by_language_js
-    @get_language = CodingLanguage.where(name: params[:search_language_js])
-    @users_found = []
-
-    @get_language.each do |value|
-      @users_with_language = User.find(value.user_id)
-
-      @users_found << @users_with_language
-    end
-    @users_found
-  end
-
-  def input_verification
-    if params.key?(:first_name)
-      @users_found = User.global_search(params[:first_name])
-    elsif params.key?(:search_language_html)
-      search_by_language_html
-    else
-      @users_found = User.all
-    end
-  end
-
   def index
-    if params[:first_name] === ""
-      @users_found = User.all
-    elsif input_verification
-      search_by_language_js if params.key?(:search_language_js)
-    end
-    respond_to do |format|
-      format.html
-      format.json { render json: { users_found: @users_found } }
-    end
+    @q = User.ransack(params[:q])
+
+    @users_found = @q.result
   end
 
   def show

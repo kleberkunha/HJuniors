@@ -23,4 +23,8 @@ class User < ApplicationRecord
                       prefix: true
                     }
                   }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["first_name"]
+  end
 end

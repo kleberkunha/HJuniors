@@ -15,7 +15,7 @@ gem "font-awesome-sass", "~> 6.3.0"
 gem 'pg_search'
 gem "table_print"
 gem 'ransack'
-
+gem 'pry', '~> 0.10.3'
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

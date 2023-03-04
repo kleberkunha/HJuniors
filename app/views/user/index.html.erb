@@ -1,41 +1,12 @@
-<%= form_tag(user_index_path, :method => "get", class: 'navbar-form navbar-left') do %>
-    <div class="container-fluid mt-4">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-9">
-                <div class="card p-4 mt-3">
-                    <h1 class="text-dark mt-5 pb-5 text-center">Find here Juniors with diferent experiences, fell free to search by languages !</h1>
-                    <div class="d-flex justify-content-center px-5">
-                        <div class="search d-flex justify-content-center">
-                            <%= search_field_tag :first_name, nil, class: "w-75", disable: true%>
-                            <%= submit_tag("Search", name: nil) %>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center mt-5">
-                        <div class="col-md-1 language-image">
-                            <%= link_to image_tag('https://imgs.search.brave.com/R3ZNAgtGeMgZOwS3T6UlygC9dRE6Ghfk0hyj2vCbTU0/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9zMy5h/bWF6b25hd3MuY29t/L21lZGlhLXAuc2xp/ZC5lcy91cGxvYWRz/LzM2NTQ2OC9pbWFn/ZXMvMTgxMjE4NS9I/VE1MNV9Mb2dvXzUx/Mi5wbmc'), {:controller => "user", :action => "index", :search_language_html => "html"} %>
-                        </div>
-                        <div class="col-md-1 language-image">
-                                <%= link_to image_tag('https://imgs.search.brave.com/xoAtCKupPFsAdzzEXzMmue545WdG_2jBhWY7moHb2j8/rs:fit:640:750:1/g:ce/aHR0cHM6Ly8zY29u/MTQuYml6L2pzL19k/YXRhL19jb25maWcv/anMucG5n'), {:controller => "user", :action => "index", :search_language_js => "javascript"} %>
-                        </div>
-                        <div class="col-md-1 language-image">
-                                <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
-                        </div>
-                        <div class="col-md-1 language-image">
-                                <img src="https://i.imgur.com/D0Sm15i.png" width="50">
-                        </div>
-                        <div class="col-md-1 language-image">
-                                <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
-                        </div>
-                        <div class="col-md-1 language-image">
-                                <img src="https://i.imgur.com/YLsQrn3.png" width="50">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<% end %>
 
+
+
+<div class="col-lg-10">
+    <%= search_form_for @q, url: :user_index do |f| %>
+        <%= f.search_field :first_name_cont %>
+
+        <%= f.submit "search" %>
+    <% end %>
+</div>
 
 <%= render partial: 'user/all_users', format: :erb %>
-
