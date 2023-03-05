@@ -23,44 +23,36 @@
   <div class="right-rounded-light"></div>
 </div>
 
-<div class="container">
+<div class="container-fluid vip-list-main">
   <div class="row">
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
+    <div class="col-sm vip-text p-5">
+      <h1> Vip list Juniors </h1>
+      <p>Discover here the juniors Available</p>
     </div>
   </div>
-</div>
-
-
-
-<% @users.each do |user|%>
-    <%= link_to user_url(user.id) do %>
-        <% if user.avatar.attached? %>
-            <div class="card-home">
-                <div class="inglobe-img">
-                    <%= image_tag user.avatar, class: 'userimg-index' %>
+    <div class="container-fluid">
+      <div class="row line-control-map-cards">
+        <% @users.each do |user|%>
+          <div class="col-sm-2 control-card m-0">
+            <%= link_to user_url(user.id) do %>
+              <div class="light-card-user">
+                <div class="dark-card-image">
+                  <div class="background-behind-card-user-img">
+                    <% if user.avatar.attached? %>
+                      <%= image_tag user.avatar, class: 'card-img-top user_card_image' %>
+                    <% else %>
+                      <img class="user_card_image" src="https://imgs.search.brave.com/XtLGLUDDvQfwcllc-bxO4UibpUaZVCc-b3LyEN-pq7Y/rs:fit:474:680:1/g:ce/aHR0cHM6Ly90YWJs/ZXNsYXdncm91cC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDYvd29tYW4u/cG5n" />
+                    <% end %>
+                  </div>
                 </div>
-                <div class="inglobe-text">
-                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                    <p class="user-status"><%= user.status %></p>
-                </div>
-            </div>
-        <% else %>
-            <div class="card-home">
-                <div class="inglobe-img">
-                    <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
-                </div>
-                <div class="inglobe-text">
-                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                    <p class="user-status"><%= user.status %></p>
-                </div>
-            </div>
+              </div>
+              <div class="card-body user-desc">
+                <h5 class="card-title"><%= user.first_name %>&nbsp<%= user.last_name %></h5>
+                <p class="card-text card-status"><%= user.status %></p>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-    <% end %>
-<% end %>
+      </div>
+    </div>
+</div>

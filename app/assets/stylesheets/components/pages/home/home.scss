@@ -1,17 +1,18 @@
-
-.first-div-home-seach{
+.first-div-home-seach {
     height: 89.9vh;
 
-    .home-welcome-text{
+    .home-welcome-text {
         display: flex;
         justify-content: center;
         flex-direction: column;
         margin-top: 150px;
     }
 
-    .left-rounded-light{
+    .left-rounded-light {
         width: 20%;
-    }&::before{
+    }
+
+    &::before {
         border-radius: 50%;
         box-shadow: 0px -491px 500px 230px #c5cc48;
         content: "";
@@ -22,11 +23,15 @@
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
+        z-index: -1;
+
     }
 
-    .right-rounded-light{
+    .right-rounded-light {
         width: 20%;
-    }&::after{
+    }
+
+    &::after {
         border-radius: 50%;
         box-shadow: 0px -491px 500px 230px #c5cc48;
         content: "";
@@ -37,25 +42,35 @@
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
+        z-index: -1;
     }
 }
 
-.home-search-btn{
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(87,176,112,1), #c5cc48);
+.home-search-btn {
+    background: rgb(0, 212, 255);
+    background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
     margin-left: 5px;
 
 }
-.home-search-btn i{
+
+.home-search-btn i {
     font-weight: bold;
 }
-.input-group{
+
+.input-group {
     justify-content: center;
     margin-top: 100px;
-    .form-outline{
-        width: 30%;
 
-        .fa-search{
+    .form-outline {
+        width: 45%;
+
+        .form-control {
+            background-color: #1e1e1e !important;
+            border: none;
+            outline: none;
+        }
+
+        .fa-search {
             font-size: 1em;
             padding: 10px;
             background-color: #363636;
@@ -67,12 +82,138 @@
             -moz-border-radius: 10px 0px 0px 10px;
             -ms-border-radius: 10px 0px 0px 10px;
             -o-border-radius: 10px 0px 0px 10px;
-        }:before{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        :before {
             width: 10px;
         }
-        .form1{
+
+        #form1 {
             width: 100%;
+            height: 3rem;
         }
     }
 }
 
+
+.vip-list-main {
+    background-color: #000;
+    z-index: 1;
+
+    .vip-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .line-control-map-cards {
+        display: flex;
+        justify-content: center;
+
+        a {
+            width: 15%;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .control-card {
+            max-width: 100%;
+            pad: 10px;
+
+            .light-card-user {
+                background: rgb(0, 212, 255);
+                content: "";
+                background: linear-gradient(0deg, rgba(87, 176, 112, 1), #c5cc48);
+                margin: 0;
+                height: 200px;
+                border-radius: 20px;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                -ms-border-radius: 20px;
+                -o-border-radius: 20px;
+                display: flex;
+                justify-content: flex-end;
+
+                .dark-card-image {
+                    content: "";
+                    width: 97%;
+                    height: 97%;
+                    background: #1e1e1e;
+                    margin: 0;
+                    border-radius: 20px 15px 8px 20px;
+                    -webkit-border-radius: 20px 15px 8px 20px;
+                    -moz-border-radius: 20px 15px 8px 20px;
+                    -ms-border-radius: 20px 15px 8px 20px;
+                    -o-border-radius: 20px 15px 8px 20px;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .background-behind-card-user-img {
+                        background-color: #323232;
+                        margin: 40px;
+                        height: inherit;
+                        display: flex;
+                        -webkit-border-radius: 50px;
+                        -moz-border-radius: 50px;
+                        -ms-border-radius: 50px;
+                        -o-border-radius: 50px;
+
+                        .user_card_image {
+                            vertical-align: middle;
+                            width: 760px;
+                            height: inherit;
+                            transform: scale(1.1);
+                            -webkit-transform: scale(1.1);
+                            -moz-transform: scale(1.1);
+                            -ms-transform: scale(1.1);
+                            -o-transform: scale(1.1);
+                        }
+
+                        .user_card_image:hover {
+                            transform: scale(1.2);
+                            transition: .5s ease-in-out;
+                            -webkit-transition: .5s ease-in-out;
+                            -moz-transition: .5s ease-in-out;
+                            -ms-transition: .5s ease-in-out;
+                            -o-transition: .5s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+
+        .control-card:hover {
+            .background-behind-card-user-img {
+                background-color: #c5cc48 !important;
+                transition: background-color 1s ease;
+                -webkit-transition: background-color 1s ease;
+                -moz-transition: background-color 1s ease;
+                -ms-transition: background-color 1s ease;
+                -o-transition: background-color 1s ease;
+            }
+        }
+    }
+
+
+    .user-desc {
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+
+        .card-status {
+            width: 100%;
+            align-self: center;
+            background-color: #1e1e1e;
+
+        }
+    }
+}
