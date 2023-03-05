@@ -54,34 +54,6 @@
   visibility: hidden;
 }
 
-.svg-white-profile {
-  display: flex;
-  justify-content: flex-end;
-  z-index: -5;
-
-  &::after {
-    content: "";
-    width: 1800px;
-    height: 1500px;
-    background-image: url("https://i.postimg.cc/gJrWM6FL/bg-svg.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: absolute;
-    bottom: 1px;
-    top: -77vh;
-    left: -1vw;
-    transition: rotate(120deg);
-    -webkit-transition: rotate(120deg);
-    -moz-transition: rotate(120deg);
-    -ms-transition: rotate(120deg);
-    -o-transition: rotate(120deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 
 //////// CAROUSEL
 
