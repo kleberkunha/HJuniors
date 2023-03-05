@@ -30,29 +30,29 @@
       <p>Discover here the juniors Available</p>
     </div>
   </div>
-    <div class="container-fluid">
-      <div class="row line-control-map-cards">
-        <% @users.each do |user|%>
-          <div class="col-sm-2 control-card m-0">
-            <%= link_to user_url(user.id) do %>
-              <div class="light-card-user">
-                <div class="dark-card-image">
-                  <div class="background-behind-card-user-img">
-                    <% if user.avatar.attached? %>
-                      <%= image_tag user.avatar, class: 'card-img-top user_card_image' %>
-                    <% else %>
-                      <img class="user_card_image" src="https://imgs.search.brave.com/XtLGLUDDvQfwcllc-bxO4UibpUaZVCc-b3LyEN-pq7Y/rs:fit:474:680:1/g:ce/aHR0cHM6Ly90YWJs/ZXNsYXdncm91cC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDYvd29tYW4u/cG5n" />
-                    <% end %>
-                  </div>
+  <div class="container-fluid test">
+    <div class="row line-control-map-cards-profile">
+      <% @users.each do |user|%>
+        <div class="col-sm-2 control-card-profile m-0">
+          <%= link_to user_url(user.id) do %>
+            <div class="light-card-user-profile">
+              <div class="dark-card-image-profile">
+                <div class="background-behind-card-user-img-profile">
+                  <% if user.avatar.attached? %>
+                    <%= image_tag user.avatar, class: 'card-img-top user_card_image_profile' %>
+                  <% else %>
+                    <img class="user_card_image" src="https://imgs.search.brave.com/XtLGLUDDvQfwcllc-bxO4UibpUaZVCc-b3LyEN-pq7Y/rs:fit:474:680:1/g:ce/aHR0cHM6Ly90YWJs/ZXNsYXdncm91cC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDYvd29tYW4u/cG5n" />
+                  <% end %>
                 </div>
               </div>
-              <div class="card-body user-desc">
-                <h5 class="card-title"><%= user.first_name %>&nbsp<%= user.last_name %></h5>
-                <p class="card-text card-status"><%= user.status %></p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+            </div>
+            <div class="card-body user-desc-profile">
+              <h5 class="card-title-profile"><%= user.first_name %>&nbsp<%= user.last_name %></h5>
+              <p class="card-text card-status-profile"><%= user.status %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
