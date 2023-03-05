@@ -1,37 +1,39 @@
-<ul class="menu cf">
-  <li><%= link_to "Home", root_path %></li>
-  <li>
-    <%= link_to "Projects", projects_path %>
-  </li>
-  <li>
-    <%= link_to "Profiles", user_index_path %>
-  </li>
-  <li>
-    <% if user_signed_in? %>
-      <li><%= link_to "My Profile", user_path(current_user.id) %></li>
-    <% end %>
-  </li>
-  <% if !user_signed_in? %>
-    <li>
-      <%= link_to "Login", new_user_session_path %>
-     <%#  <ul class="submenu submenu-1">
-        <li class="dropdown-Login">
-          <%= render partial: 'components/login_fake', format: :erb %>
-    <%#      </li>
-      </ul> %>
-    </li>
-  <% end %>
-  <% if !user_signed_in? %>
-    <li>
-      <%= link_to "Register", new_user_registration_path %>
-      <ul class="submenu submenu-1">
-        <%# <li class="dropdown-Register ">
-          <%= render partial: 'components/login_fake', format: :erb %>
-        <%# </li> %>
+
+<nav class="navbar navbar-expand-lg  ">
+  <div class="container">
+    <a class="navbar-brand text-white" href="#">Oh My Junior</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Projects", projects_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Profiles", user_index_path, class: "nav-link" %>
+        </li>
+         <% if user_signed_in? %>
+         <li class="nav-item">
+          <%= link_to "My Profile", user_path(current_user.id), class: "nav-link" %>
+        </li>
+        <% end %>
+        <% if !user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path, class: "nav-link btn-register" %>
+          </li>
+        <% else %>
+          <li><%= link_to 'Disconnect', destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %></li>
+        <% end %>
       </ul>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li><%= link_to 'Disconnect', destroy_user_session_path, data: {turbo_method: :delete} %></li>
-  <% end%>
-</ul>
+    </div>
+    <a class="navbar-brand right-brand" href="#">Learn about</a>
+  </div>
+</nav>

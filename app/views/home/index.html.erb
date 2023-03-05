@@ -1,103 +1,66 @@
-<div class="inglobe-bg-color">
-    <div class=" teste">
-        <div class="svg-image"></div>
-        <div class="row line-text">
-            <div class="col-lg-12 div-text-welcome">
-                <div class="content-welcome">
-                    <h1>Find your junior and get a better view of his profile !</h1>
-                    <p>Search by skill, name and school</p>
-                    <div class="w-100 d-flex main-search">
-                        <div class="form-outline">
-                            <input type="search" id="form1" class="form-control", placeholder="The Hacking Project" />
-                        </div>
-                        <button type="button" class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid first-div-home-seach">
+  <div class="row">
+    <div class="col-sm-12 home-welcome-text">
+      <h1 class="text-center">Welcome to the Search Junior Engine</h1>
+      <p class="text-center">Search By language,name,school our country</p>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class="input-group">
+        <div class="form-outline d-flex">
+          <i class="fa fa-search"></i>
+          <input type="search" id="form1" class="form-control", placeholder="Search" />
         </div>
+        <button type="button" class="btn home-search-btn">
+          <i class="">Search</i>
+        </button>
+      </div>
     </div>
-    <div class="container">
-        <div class="row control-line-squares">
-            <div class="col-sm-3 squares-home">
-                <div class="row w-100 rowIMG">
-                    <div class="mt-2 square_image"></div>
+  </div>
+  <div class="left-rounded-light"></div>
+  <div class="right-rounded-light"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+
+
+
+<% @users.each do |user|%>
+    <%= link_to user_url(user.id) do %>
+        <% if user.avatar.attached? %>
+            <div class="card-home">
+                <div class="inglobe-img">
+                    <%= image_tag user.avatar, class: 'userimg-index' %>
                 </div>
-                <h1 class="text-center mt-3 font-weight-bold text-white">Dev</h1>
-                <h6 class="text-center font-weight-bold text-white">Juniors Developers from many different country</h6>
+                <div class="inglobe-text">
+                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                    <p class="user-status"><%= user.status %></p>
+                </div>
             </div>
-            <div class="col-sm-3 squares-home">
-                <div class="row w-100 rowIMG">
-                    <div class="mt-2 square_image"></div>
+        <% else %>
+            <div class="card-home">
+                <div class="inglobe-img">
+                    <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
                 </div>
-                <h1 class="text-center mt-3 font-weight-bold text-white">Junior</h1>
-                <h6 class="text-center font-weight-bold text-white">Help a junior to improve the skills and be able to offer more for the market </h6>
+                <div class="inglobe-text">
+                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
+                    <p class="user-status"><%= user.status %></p>
+                </div>
             </div>
-            <div class="col-sm-3 squares-home">
-                <div class="row w-100 rowIMG">
-                    <div class="mt-2 square_image"></div>
-                </div>
-                <h1 class="text-center mt-3 font-weight-bold text-white">Dev</h1>
-                <h6 class="text-center font-weight-bold text-white">Juniors Developers from many different country</h6>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="container-fluid div-partition p-0 ">
-    <div class="w-100 div-partition-2">
-        <div class="wave-1"></div>
-    <div class="col-sm-3 search-profile"></div>
-</div>
-<div class="main-header-section-user">
-    <div class="text-title-vip-list">
-        <h1 class="text-header-section-user">List of juniors registered on our website</h1>
-        <p>Mollit ea et anim qui consequat cillum eiusmod exercitation adipisicing mollit adipisicing pariatur aliqua.</p>
-    </div>
-    <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <circle id="Oval" cx="512" cy="512" r="512"></circle>
-    </svg>
-    <svg class="pulse-1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <circle id="Oval" cx="512" cy="512" r="512"></circle>
-    </svg>
-</div>
-
-<div class="container-fluid section-juniors-list">
-    <div class="resize-list-user">
-        <div class="row content-users-row">
-            <% @users.each do |user|%>
-                <div class="col-sm-2 m-2 card-border">
-                    <%= link_to user_path(user) do %>
-                        <% if user.avatar.attached? %>
-                            <div class="card-home">
-                                <div class="inglobe-img">
-                                    <%= image_tag user.avatar, class: 'userimg-index' %>
-                                </div>
-                                <div class="inglobe-text">
-                                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                    <p class="user-status"><%= user.status %></p>
-                                    <p class="user-status"><%= user.id %></p>
-                                </div>
-                            </div>
-                        <% else %>
-                            <div class="card-home">
-                                <div class="inglobe-img">
-                                    <img src="https://imgs.search.brave.com/ENTxUNsfzAy9tZ7HNVZWcEmOEn8tKSEAay0MBz3rE8M/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9mcmVl/cG5naW1nLmNvbS90/aHVtYi9tYW4vMTAt/bWFuLXBuZy1pbWFn/ZS5wbmc" class="userimg-index" alt="...">
-                                </div>
-                                <div class="inglobe-text">
-                                    <p><%= user.first_name %>&nbsp<%= user.last_name %></p>
-                                    <p class="user-status"><%= user.status %></p>
-                                </div>
-                            </div>
-                        <% end %>
-                    <% end %>
-                </div>
-            <% end %>
-        </div>
-    </div>
-</div>
-
-
+        <% end %>
+    <% end %>
+<% end %>
