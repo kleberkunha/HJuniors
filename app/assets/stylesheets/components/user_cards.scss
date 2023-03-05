@@ -7,6 +7,16 @@
       text-decoration: none !important;
       margin: 10px;
     }
+    a:hover{
+      .user_card_image_profile{
+        transform: scale(1.5);
+        transition: transform .8s ease-in-out;
+        -webkit-transition: transform .8s ease-in-out;
+        -moz-transition: transform .8s ease-in-out;
+        -ms-transition: transform .8s ease-in-out;
+        -o-transition: transform .8s ease-in-out;
+}
+    }
 
     .control-card-profile {
       max-width: 100%;
