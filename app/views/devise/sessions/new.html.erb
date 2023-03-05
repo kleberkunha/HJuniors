@@ -1,19 +1,23 @@
-<div class="bg-dark h-100">
-  <div class="container-fluid main-login">
+<div class="background-login h-100">
+  <div class="container main-login">
     <div class="login">
       <h2 class="login-txt">Login</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <!-- Email input -->
         <div class="form-outline mb-4">
+          <i class="fa-solid fa-user-check"></i>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-label', placeholder: 'Email' %>
         </div>
         <!-- Password input -->
         <div class="form-outline mb-4">
+          <i class="fa-solid fa-lock"></i>
           <%= f.password_field :password, autocomplete: "current-password", class: 'form-label', placeholder:'password' %>
         </div>
         <!-- 2 column grid layout for inline styling -->
         <div class="row mb-4">
-          <div class="col d-flex justify-content-center">
+          <div class="col control-forget-password ">
+            <a href="#!"><%= link_to "Forgot password?", new_password_path(resource_name) %><br /></a>
+
             <!-- Checkbox -->
             <div class="form-check">
               <% if devise_mapping.rememberable? %>
@@ -24,13 +28,12 @@
               <% end %>
             </div>
           </div>
-          <div class="col">
-            <!-- Simple link -->
-            <a href="#!"><%= link_to "Forgot password?", new_password_path(resource_name) %><br /></a>
-          </div>
         </div>
         <!-- Submit button -->
-        <%= f.submit "Sign in", class:'login-btn' %>
+        <div class="text-center">
+          <%= f.submit "Sign in", class:'login-btn' %>
+          <i class="fa-light fa-right-to-bracket"></i>
+        </div>
         <!-- Register buttons -->
         <div class="text-center">
           <p>Not a member? <a href="#!"><%= link_to "Sign up", new_registration_path(resource_name) %><br /></a></p>
