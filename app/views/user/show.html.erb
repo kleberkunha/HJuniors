@@ -1,40 +1,28 @@
 <div class="container bootstrap snippets bootdey pt-5">
-    <div id="wrapper d-flex justify-content-center">
-        <div id="carousel">
-            <div id="content">
-                <% @languages_user.each do |language|%>
-                    <% if language.img.attached? %>
-                        <img
-                            class="item"
-                            src="<%=(url_for(language.img))%>"
-                        />
-                    <% end %>
+    <div class="row">
+        <div class="col mini-language-image d-flex justify-content-center">
+            <% @languages_user.each do |language|%>
+                <% if language.img.attached? %>
+                    <img
+                        class="item"
+                        src="<%=(url_for(language.img))%>"
+                    />
                 <% end %>
-            </div>
+            <% end %>
         </div>
     </div>
-    <div class="row">
-        <div class="profile-nav col-md-3">
-            <div class="panel">
-                <div class="user-heading round">
-                    <% if @user.avatar.attached? %>
-                        <img src="<%=(url_for(@user.avatar))%>" class="profile-user-img"
-                        alt="Avatar" />
-                    <% end %>
-                    <h1><%= @user.first_name%>&nbsp<%= @user.last_name%></h1>
-                    <p><%= @user.email%></p>
-                </div>
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
-                    <li class="button-edit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <a href="#"><i class="fa fa-user"></i>Edit</a>
-                    </li>
-                    <li><%= link_to "Add Project", new_project_url(current_user.id) %></li>
-                    <li><%= link_to "Add JOB", new_job_url %></li>
-                </ul>
+
+    <div class="row mt-3">
+        <div class="profile-data col-md-3">
+            <div class="user-heading round">
+                <% if @user.avatar.attached? %>
+                    <img src="<%=(url_for(@user.avatar))%>" class="profile-user-img"
+                    alt="Avatar" />
+                <% end %>
             </div>
+            <p class="user-status mt-2"> <%= @user.status %></p>
         </div>
-        <div class="profile-info col-md-9">
+        <div class="profile-user-info col-md-9">
             <div class="panel">
                 <div class="bio-graph-heading">
                     <%= @user.description%>
@@ -55,7 +43,7 @@
                         <%= render partial: 'user/edit', format: :erb %>
                     </div>
                 </div>
-                <div class="panel-body bio-graph-info">
+                <div class="panel-body bio-graph-info mt-3">
                     <div class="row">
                         <div class="bio-row">
                             <p><span>First Name </span>: <%= @user.first_name%></p>
@@ -81,63 +69,99 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="row">
-                    <div class="col-md-6 mt-3">
-                        <div class="panel">
-                            <h1 class="text-center">Projects</h1>
-                            <ul class="list-group  text-white">
-                                <% @projects.each do |project|%>
-                                <li class="list-group-item d-flex justify-content-between color-black">
-                                    <%= project.name%>
-                                    <div class="project-control-buttons">
-                                    <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
-                                    method: :delete, class:'' %>
-                                    <%= link_to 'show', project_path(project.id) %>
-                                    </div>
-                                </li>
-                                <% end %>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <div class="panel">
-                            <h1 class="text-center">Jobs</h1>
-                            <ul class="list-group  text-white">
-                                <% @jobs.each do |job|%>
-                                <li class="list-group-item d-flex justify-content-between color-black">
-                                    <%= job.name%>
-                                    <div class="project-control-buttons">
-                                    <%= link_to 'Delete', jobs_path(job.id),data: { "turbo-method": :delete },
-                                    method: :delete, class:'' %>
-                                    <%= link_to 'show', jobs_path(job.id) %>
-                                    </div>
-                                </li>
-                                <% end %>
-                            </ul>
-                        </div>
-                    </div>
+        </div>
+    </div>
+
+    <div class="container p-0">
+        <div class="row">
+            <div class="col-sm-3 user-settings">
+                <ul class="nav nav-pills nav-stacked settings-options">
+                    <li class="button-edit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <a href="#">Edit Profile</a>
+                    </li>
+                    <li><%= link_to "Add Project", new_project_url(current_user.id) %></li>
+                </ul>
+                <ul class="nav nav-pills nav-stacked settings-options">
+                    <li><%= link_to "Add JOB", new_job_url %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container p-0">
+        <div class="row d-flex justify-content-end">
+            <div class="col-sm-3 title-degree">
+                <h1>Degrees</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+    <%= render partial: 'user/form_degree', format: :erb %>
+</div>
+
+<section class="gallery-diploma">
+    <div class="container-lg control-gallery">
+        <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
+        <% @degrees.each do |degree| %>
+            <% if @user.avatar.attached? %>
+            <div class="col image-card-with-button-delete">
+                <img src="<%=(url_for(degree.avatar))%>" class="gallery-item" alt="gallery">
+                <% if current_user.id === degree.user_id%>
+                <%= link_to 'Delete', degree_path(degree.id),data: { "turbo-method": :delete },
+                method: :delete, class:'btn-delete-degree-profile' %>
+                <% end %>
+            </div>
+            <% end %>
+        <% end %>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="panel">
+                <div class="d-flex justify-content-center">
+                    <h1 class="text-center w-50 projects-title">Projects</h1>
                 </div>
+                <ul class="list-group text-white">
+                    <% @projects.each do |project|%>
+                    <li class="list-group-item d-flex justify-content-between color-black">
+                        <%= project.name%>
+                        <div class="project-control-buttons">
+                        <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
+                        method: :delete, class:'' %>
+                        <%= link_to 'show', project_path(project.id) %>
+                        </div>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="panel">
+                <div class="d-flex justify-content-center">
+                    <h1 class="text-center w-50 projects-title">Jobs</h1>
+                </div>
+                <ul class="list-group  text-white">
+                    <% @jobs.each do |job|%>
+                        <li class="list-group-item d-flex justify-content-between color-black">
+                            <%= job.name%>
+                            <div class="project-control-buttons">
+                            <%= link_to 'Delete', jobs_path(job.id),data: { "turbo-method": :delete },
+                            method: :delete, class:'' %>
+                            <%= link_to 'show', jobs_path(job.id) %>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-<%= render partial: 'user/form_degree', format: :erb %>
-<section class="gallery-diploma">
-  <div class="container-lg control-gallery">
-    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
-      <% @degrees.each do |degree| %>
-        <% if @user.avatar.attached? %>
-          <div class="col image-card-with-button-delete">
-            <img src="<%=(url_for(degree.avatar))%>" class="gallery-item" alt="gallery">
-            <% if current_user.id === degree.user_id%>
-              <%= link_to 'Delete', degree_path(degree.id),data: { "turbo-method": :delete },
-              method: :delete, class:'btn-delete-degree-profile' %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</section>
+
+
 

@@ -2,9 +2,6 @@ img{
 	max-width: 100%;
 }
 .gallery-diploma{
-	padding: 80px 0;
-    z-index: 6 !important;
-    position: absolute;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -12,7 +9,7 @@ img{
     .control-gallery{
         margin-right: 17vw;
         margin: -3vw;
-        border: 10px solid rgb(255, 255, 255);
+        border: 10px solid #1e1e1e;
         box-shadow: 0px 0px 15px 0px black;
 
         .row{
