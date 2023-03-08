@@ -2,20 +2,19 @@
   <div class="row">
     <div class="col-sm-12 home-welcome-text">
       <h1 class="text-center">Welcome to the Search Junior Engine</h1>
-      <p class="text-center">Search By language,name,school our country</p>
+      <p class="text-center">Search By language,name,school or country</p>
     </div>
-
   </div>
   <div class="row">
     <div class="col-sm">
-      <div class="input-group">
-        <div class="form-outline d-flex">
-          <i class="fa fa-search"></i>
-          <input type="search" id="form1" class="form-control", placeholder="Search" />
-        </div>
-        <button type="button" class="btn home-search-btn">
-          <i class="">Search</i>
-        </button>
+      <div class="input-group d-flex">
+        <%= search_form_for @q, url: :user_index do |f| %>
+          <div class="form-outline d-flex">
+            <i class="fa fa-search"></i>
+            <%= f.search_field :first_name_cont %>
+            <%= f.submit "search" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
