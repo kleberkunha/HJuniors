@@ -8,6 +8,22 @@ body{
     background: rgb(14, 14, 14);
     color: white;
 }
+
+body::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 5px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
+
+
 .alert{
     position: absolute;
 }

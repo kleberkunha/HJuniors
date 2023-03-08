@@ -1,20 +1,39 @@
-.navbar{
+.navbar {
     background-color: black;
-    .navbar-toggler{
+
+    .navbar-control {
+        .navbar-collapse {
+            margin-right: -50px;
+        }
+    }
+
+    .learn-about {
+        margin-right: -100px;
+    }
+
+    .navbar-nav {
+        margin-left: -50px;
+    }
+
+    .navbar-toggler {
         background-color: white;
     }
-    .navbar-collapse{
+
+    .navbar-collapse {
         display: flex;
         justify-content: center;
-        .nav-item{
+
+        .nav-item {
             padding: 20px;
-            a{
+
+            a {
                 color: white;
                 font-weight: bold;
             }
-            a:hover{
+
+            a:hover {
                 border: 1px solid #c5cc48;
-                box-shadow: 0px 0px 15px 0px rgba(87,176,112,1);
+                box-shadow: 0px 0px 15px 0px rgba(87, 176, 112, 1);
                 border-radius: 10px;
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
@@ -24,10 +43,11 @@
             }
         }
     }
-    .right-brand{
-        background: rgb(0,212,255);
-        background: linear-gradient(90deg, rgba(87,176,112,1), #c5cc48);
-        padding: 10px;
+
+    .right-brand {
+        background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
+        text-align: center;
+        padding: 0px 10px 0px 10px;
         text-decoration: none;
         font-weight: bold;
         color: black;
@@ -37,5 +57,10 @@
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+    }
+
+    .right-brand:hover {
+        background: linear-gradient(90deg, rgba(87, 176, 112, 0.705), #c5cc48b4);
+        color: rgba(233, 233, 233, 0.63);
     }
 }
