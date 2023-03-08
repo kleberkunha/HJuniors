@@ -14,7 +14,7 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  scope :sorted, -> { order(last_name: :asc) }
+  scope :sorted, -> { order(first_name: :asc) }
 
   pg_search_scope :global_search,
                   against: %i[first_name last_name],

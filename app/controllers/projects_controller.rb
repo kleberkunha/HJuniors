@@ -8,8 +8,9 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all.reverse
-    #here i do aloop in the project
+    @q = Project.ransack(params[:q])
+
+    @project_found = @q.result(distinct: true)
   end
 
   # GET /projects/1 or /projects/1.json

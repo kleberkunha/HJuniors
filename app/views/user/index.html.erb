@@ -1,12 +1,18 @@
 
 
 
-<div class="col-lg-10">
-    <%= search_form_for @q, url: :user_index do |f| %>
-        <%= f.search_field :first_name_cont %>
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-9 search-bar-profile">
+            <%= search_form_for @q, url: :user_index do |f| %>
+                <%= f.search_field :first_name_cont %>
 
-        <%= f.submit "search" %>
-    <% end %>
+                <%= f.submit "search" %>
+            <% end %>
+        </div>
+    </div>
 </div>
 
-<%= render partial: 'user/all_users', format: :erb %>
+<div class="control-after-search">
+    <%= render partial: 'user/all_users', format: :erb %>
+</div>

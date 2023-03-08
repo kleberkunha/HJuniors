@@ -1,16 +1,19 @@
-<div class="container header-projects pt-5">
+<div class="container mt-5 mb-5">
+  <div class="row d-flex justify-content-center">
+      <div class="col-sm-9 search-bar-projects">
+          <%= search_form_for @q, url: :projects do |f| %>
+              <%= f.search_field :name_cont %>
 
-  <div class="input-group mb-5  d-flex w-100 multipleSearch_project justify-content-center">
-    <input type="text" placeholder="Search by Project name :">
-    <input type="text" placeholder="Description word :">
-    <input type="text" placeholder="Search by language name :">
+              <%= f.submit "search" %>
+          <% end %>
+      </div>
   </div>
 </div>
 
 
-<div class="container">
+<div class="container list-of-projects">
   <div class="row">
-    <% @projects.each do |project|%>
+    <% @project_found.each do |project|%>
       <div class="nft">
         <div class='main'>
           <% if project.avatar.attached? %>

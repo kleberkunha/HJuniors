@@ -24,7 +24,7 @@
         </div>
         <div class="profile-user-info col-md-9">
             <div class="panel">
-                <div class="bio-graph-heading">
+                <div class="bio-graph-heading text-center">
                     <%= @user.description%>
                 </div>
                 <div class="collapse" id="collapseExample">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="panel-body bio-graph-info mt-3">
-                    <div class="row">
+                    <div class="row p-3">
                         <div class="bio-row">
                             <p><span>First Name </span>: <%= @user.first_name%></p>
                         </div>
@@ -87,15 +87,9 @@
             </div>
         </div>
     </div>
-
-    <div class="container p-0">
-        <div class="row d-flex justify-content-end">
-            <div class="col-sm-3 title-degree">
-                <h1>Degrees</h1>
-            </div>
-        </div>
-    </div>
-
+</div>
+<div class="container mt-5 mb-5">
+    <hr class="bg-white">
 </div>
 
 <div class="container p-0 control-create-degree">
@@ -159,9 +153,13 @@
                             <li class="list-group-item d-flex">
                                 <h5 class="m-0 project-name w-75"><%= job.name%></h5>
                                 <div class="project-control-buttons d-flex">
-                                    <%= link_to 'Open', jobs_path(job.id), class:'show-btn' %>
-                                    <%= link_to 'Delete', jobs_path(job.id),data: { "turbo-method": :delete },
-                                    method: :delete, class:'delete-btn' %>
+                                    <% if current_user.id === User.find(params[:id]) %>
+                                        <%= link_to 'Open', job_path(job.id), class:'show-btn' %>
+                                    <% else %>
+                                        <%= link_to 'Open', job_path(job.id), class:'show-btn' %>
+                                        <%= link_to 'Delete', job_path(job.id),data: { "turbo-method": :delete },
+                                        method: :delete, class:'delete-btn' %>
+                                    <% end %>
                                 </div>
                             </li>
                         <% end %>

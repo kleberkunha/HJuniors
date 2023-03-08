@@ -57,7 +57,8 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to jobs_url, notice: "Job was successfully destroyed."
+        redirect_to user_url(current_user),
+                    notice: "Job was successfully destroyed."
       end
       format.json { head :no_content }
     end

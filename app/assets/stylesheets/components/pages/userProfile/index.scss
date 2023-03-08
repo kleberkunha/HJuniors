@@ -1,0 +1,71 @@
+.control-after-search {
+    height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.search-bar-profile {
+    background-color: black;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 10px;
+
+    .user_search {
+        display: flex;
+        justify-content: center;
+
+        #q_first_name_cont {
+            width: 85%;
+            outline: none;
+            border: none;
+            padding: 5px 12px 5px 12px;
+            background-color: #1e1e1e !important;
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+        }
+
+        #q_first_name_cont:focus {
+            background-color: transparent;
+        }
+
+        input {
+            color: white;
+            background-color: #1e1e1e;
+            margin-left: 10px;
+            outline: none;
+            border: 0;
+            padding: 5px 12px 5px 12px;
+            font-weight: bold;
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+        }
+
+        input:hover {
+            background-color: rgba(94, 94, 94, 0.623) !important;
+        }
+    }
+}
+
+
+.control-after-search::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 5px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.control-after-search::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
