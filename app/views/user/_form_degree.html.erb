@@ -10,11 +10,13 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label "Background Card" %>
-    <%= form.file_field :avatar %>
-  </div>
-  <div>
-    <%= form.submit %>
+  <div class="d-flex">
+    <div class="btn-add-degree-img">
+      <i class="fa-duotone fa-rectangle-history-circle-plus"></i>
+      <%= form.file_field :avatar, class: "button-select-img-degree" %>
+    </div>
+    <div class="btn-create-degree">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

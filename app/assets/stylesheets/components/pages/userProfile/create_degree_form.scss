@@ -1,0 +1,18 @@
+#degree_avatar {
+    background-color: #1e1e1e;
+    .image-upload input
+    {
+        display: none;
+    }
+}
+.btn-add-degree-img input{
+    font-weight: bold;
+    outline: none;
+}
+.btn-create-degree input{
+    font-weight: bold;
+    outline: none;
+}
+.btn-create-degree input:hover{
+    background-color: #ffffff7a;
+}

@@ -138,16 +138,99 @@
   -o-border-radius: 7px;
 }
 
-/* PROJECTS + JOBS */
-.projects-title{
-  background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
-  border-radius: 7px;
+.control-create-degree{
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
 }
 
-.list-group-item{
-  background-color: #1e1e1e !important;
-  margin-top: 10px;
+
+
+
+
+
+/* PROJECTS + JOBS */
+
+.projects-part{
+  background-color: #1e1e1e;
+  padding: 10px;
+  height: 345px;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  .projects-title{
+    background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
+    border-radius: 7px;
+  }
+
+  .list-group-item{
+    background-color: #000000;
+    margin-top: 10px;
+    border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+
+
+    .project-name{
+      background-color: #1e1e1e;
+      padding: 5px 5px 5px 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-radius: 14px;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      -ms-border-radius: 14px;
+      -o-border-radius: 14px;
+    }
+
+    a{
+      background-color: #1e1e1e;
+      padding: 10px;
+      margin: 0px;
+      border-radius: 14px;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      -ms-border-radius: 14px;
+      -o-border-radius: 14px;
+      height: fit-content;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+
+    .show-btn{
+      font-weight: bold;
+    }
+    .delete-btn{
+      color: red;
+      font-weight: bold;
+    }
+    .show-btn:hover,
+    .delete-btn:hover{
+      background-color: rgba(94, 94, 94, 0.623);
+    }
+  }
 }
+
+.projects-part::-webkit-scrollbar {
+  border-radius: 10px;
+  width: 5px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.projects-part::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0);
+}
+
 
 
 
@@ -164,7 +247,7 @@ img {
 }
 
 .gallery-diploma {
-  padding: 80px 0;
+  padding: 57px ;
 }
 
 .gallery-diploma img {

@@ -98,7 +98,7 @@
 
 </div>
 
-<div class="d-flex justify-content-center">
+<div class="container p-0 control-create-degree">
     <%= render partial: 'user/form_degree', format: :erb %>
 </div>
 
@@ -120,46 +120,56 @@
     </div>
 </section>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 mt-3">
-            <div class="panel">
-                <div class="d-flex justify-content-center">
-                    <h1 class="text-center w-50 projects-title">Projects</h1>
+<div class="container mb-5">
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="mx-3 control-project">
+            <div class="d-flex justify-content-center">
+                <h1 class="text-center projects-title">Projects</h1>
+            </div>
+            <div class="col-md-12 mt-3 projects-part">
+                <div class="panel">
+                    <ul class="list-group text-white">
+                        <% @projects.each do |project|%>
+                            <li class="list-group-item d-flex">
+                                <h5 class="m-0 project-name w-75"><%= project.name%></h5>
+                                <div class="project-control-buttons d-flex">
+                                    <% if current_user.id === User.find(params[:id]) %>
+                                        <%= link_to 'Open', project_path(project.id), class:'show-btn' %>
+                                    <% else %>
+                                        <%= link_to 'Open', project_path(project.id), class:'show-btn' %>
+                                        <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
+                                        method: :delete, class:'delete-btn' %>
+                                    <% end %>
+                                </div>
+                            </li>
+                        <% end %>
+                    </ul>
                 </div>
-                <ul class="list-group text-white">
-                    <% @projects.each do |project|%>
-                    <li class="list-group-item d-flex justify-content-between color-black">
-                        <%= project.name%>
-                        <div class="project-control-buttons">
-                        <%= link_to 'Delete', project_path(project.id),data: { "turbo-method": :delete },
-                        method: :delete, class:'' %>
-                        <%= link_to 'show', project_path(project.id) %>
-                        </div>
-                    </li>
-                    <% end %>
-                </ul>
             </div>
         </div>
-        <div class="col-md-6 mt-3">
-            <div class="panel">
-                <div class="d-flex justify-content-center">
-                    <h1 class="text-center w-50 projects-title">Jobs</h1>
+
+        <div class="ml-3 control-jobs">
+            <div class="d-flex justify-content-center">
+                <h1 class="text-center projects-title">Jobs</h1>
+            </div>
+            <div class="col-md-12 mt-3 projects-part">
+                <div class="panel">
+                    <ul class="list-group text-white">
+                        <% @jobs.each do |job|%>
+                            <li class="list-group-item d-flex">
+                                <h5 class="m-0 project-name w-75"><%= job.name%></h5>
+                                <div class="project-control-buttons d-flex">
+                                    <%= link_to 'Open', jobs_path(job.id), class:'show-btn' %>
+                                    <%= link_to 'Delete', jobs_path(job.id),data: { "turbo-method": :delete },
+                                    method: :delete, class:'delete-btn' %>
+                                </div>
+                            </li>
+                        <% end %>
+                    </ul>
                 </div>
-                <ul class="list-group  text-white">
-                    <% @jobs.each do |job|%>
-                        <li class="list-group-item d-flex justify-content-between color-black">
-                            <%= job.name%>
-                            <div class="project-control-buttons">
-                            <%= link_to 'Delete', jobs_path(job.id),data: { "turbo-method": :delete },
-                            method: :delete, class:'' %>
-                            <%= link_to 'show', jobs_path(job.id) %>
-                            </div>
-                        </li>
-                    <% end %>
-                </ul>
             </div>
         </div>
+
     </div>
 </div>
 

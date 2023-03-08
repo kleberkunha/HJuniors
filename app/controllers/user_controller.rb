@@ -1,5 +1,13 @@
 class UserController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :require_same_user, only: %i[show edit update destroy]
+
+  def require_same_user
+    @user = User.find(params[:id])
+    if current_user.id != @user.id
+      redirect_to root_path, alert: "Access Denied!"
+    end
+  end
 
   def index
     @q = User.ransack(params[:q])
