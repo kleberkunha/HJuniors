@@ -20,58 +20,82 @@
                     alt="Avatar" />
                 <% end %>
             </div>
-            <p class="user-status mt-2"> <%= @user.status %></p>
         </div>
         <div class="profile-user-info col-md-9">
             <div class="panel">
-                <div class="bio-graph-heading text-center">
-                    <%= @user.description%>
+                <div class="bio-graph-heading">
+                    <% if @user.description.nil? || @user.description === ""%>
+                        <p class="user_description"> No description yet</p>
+                    <% else %>
+                        <p class="user_description"><%= @user.description%></p>
+                    <% end %>
                 </div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <div class="border mb-2">
-                            <% @languages_user.each do |language|%>
-                                <%= link_to coding_language_url(language.id),data: { "turbo-method": :delete },
-                                    method: :delete do %>
-                                    <div class="col-2 border">
-                                        <%= language.name %>
-                                    </div>
-                                <% end %>
-                            <% end %>
+
+                <div class="panel-body bio-graph-info mt-3">
+                    <div class="row">
+                        <div class="col-12 d-flex control-user-info">
+                            <div class="col-4 each-user-info p-0">
+                                <p class="data"><span>First Name : </span><%= @user.first_name%></p>
+                            </div>
+                            <div class="col-5 each-user-info">
+                                <p class="data"><span>Last Name : </span> <%= @user.last_name%></p>
+                            </div>
+                            <div class="col-3 each-user-info">
+                                <p class="data"><span>Birthday : </span> 13 July 1983</p>
+                            </div>
                         </div>
-                        <%= render "form", coding_language: @coding_language %>
-                        <%= render partial: 'user/edit', format: :erb %>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex control-user-info">
+                            <div class="col-4 each-user-info p-0 ">
+                                <p class="data"><span>Lives in : </span><%= @user.country %></p>
+                            </div>
+
+                            <div class="col-8 each-user-info">
+                                <% if @user.status.nil? || @user.status === ""%>
+                                    <p class="data mt-2"> No status yet</p>
+                                <% else %>
+                                    <p class="data"><span>Occupation </span>: <%= @user.status%></p>
+                                <% end %>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex control-user-info">
+                            <div class="col-4 each-user-info  p-0">
+                                <p class="data"><span>Phone </span>: <%= @user.phone%></p>
+                            </div>
+                            <div class="col-8 each-user-info">
+                                <p class="data"><span>Email </span>: <%= @user.email%></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="panel-body bio-graph-info mt-3">
-                    <div class="row p-3">
-                        <div class="bio-row">
-                            <p><span>First Name </span>: <%= @user.first_name%></p>
+                <div class="collapse mt-3" id="collapseExample">
+                    <div class="card card-body edit-profile-dropdown">
+                        <div class="languages-form">
+                            <p class="text-center">Click over the language to delete it</p>
+                            <div class="languages-names mb-2">
+                                <% @languages_user.each do |language|%>
+                                        <%= link_to coding_language_url(language.id),data: { "turbo-method": :delete },
+                                            method: :delete do %>
+                                            <div class="lg-name">
+                                                <%= language.name %>
+                                            </div>
+                                        <% end %>
+                                <% end %>
+                            </div>
+                            <p class="text-center">Create the language<br>Choose a image and the name of the language</p>
+                            <%= render "form", coding_language: @coding_language %>
                         </div>
-                        <div class="bio-row">
-                            <p><span>Last Name </span>: <%= @user.last_name%></p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Country </span>: <%= @user.country %></p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Birthday</span>: 13 July 1983</p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Occupation </span>: <%= @user.status%></p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Email </span>: <%= @user.email%></p>
-                        </div>
-                        <div class="bio-row">
-                            <p><span>Phone </span>: <%= @user.phone%></p>
-                        </div>
+                        <p class="text-center">Choose a image for your profile</p>
+                        <%= render partial: 'user/edit', format: :erb %>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container p-0">
         <div class="row">
             <div class="col-sm-3 user-settings">

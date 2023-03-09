@@ -1,4 +1,4 @@
-.mini-language-image{
+.mini-language-image {
   background-color: #1e1e1e;
   border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -7,13 +7,13 @@
   -o-border-radius: 50px;
   padding: 5px;
 
-  .item{
+  .item {
     max-width: 50px;
     max-height: 40px;
   }
 }
 
-.profile-data{
+.profile-data {
   background-color: #1e1e1e;
   display: flex;
   justify-content: center;
@@ -29,7 +29,7 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 
-  .user-heading{
+  .user-heading {
     max-height: 200px;
     background-color: #0D0D0D;
     overflow: hidden;
@@ -40,7 +40,7 @@
     -o-border-radius: 7px;
 
 
-    .profile-user-img{
+    .profile-user-img {
       width: 100%;
       border-radius: 28px;
       -webkit-border-radius: 28px;
@@ -49,7 +49,8 @@
       -o-border-radius: 28px;
     }
   }
-  .user-status{
+
+  .user-status {
     background-color: #0D0D0D;
     width: 100%;
     text-align: center;
@@ -63,39 +64,134 @@
 }
 
 
-.profile-user-info{
+.profile-user-info {
   padding-right: 0px !important;
-  .panel{
+
+  .panel {
 
 
-    .bio-graph-heading{
+    .bio-graph-heading {
       content: "";
       background-color: #1e1e1e;
-      height: 74px;
       padding: 20px;
       border-radius: 26px;
       -webkit-border-radius: 26px;
       -moz-border-radius: 26px;
       -ms-border-radius: 26px;
       -o-border-radius: 26px;
+
+      .user_description {
+        background-color: white;
+        width: 100%;
+        padding: 20px;
+        margin: 0;
+        color: black;
+        font-weight: bold;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
     }
 
-    .bio-graph-info{
+    .bio-graph-info {
       height: 19vh;
       background-color: #1e1e1e;
       padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       border-radius: 26px;
       -webkit-border-radius: 26px;
       -moz-border-radius: 26px;
       -ms-border-radius: 26px;
       -o-border-radius: 26px;
+
+
+      .row {
+        .control-user-info {
+          display: flex;
+
+          .each-user-info {
+            .data {
+              background-color: white;
+              color: black;
+              width: 100%;
+              height: 25px;
+              padding: 0px 10px 0px 10px;
+              font-weight: bold;
+              text-align: center;
+              border-radius: 5px;
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+
+              span {
+                font-weight: 100;
+              }
+            }
+          }
+        }
+      }
     }
 
+    .edit-profile-dropdown{
+      background-color: #1e1e1e;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+
+      .languages-form{
+        .languages-names{
+          display: flex;
+          justify-content: center;
+          background-color: #000000;
+          border-radius: 20px;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          -ms-border-radius: 20px;
+          -o-border-radius: 20px;
+
+          .lg-name {
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px;
+            margin: 5px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+          }
+        }
+      }
+    }
   }
 }
 
+.form-languages{
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
 
-.user-settings{
+
+.user-settings {
   background-color: #1e1e1e;
   padding: 15px;
   color: white;
@@ -106,11 +202,8 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 
-  .settings-options{
-    display: flex;
-    justify-content: center;
-
-    li{
+  .settings-options {
+    li {
       background-color: #0D0D0D;
       margin: 10px;
       padding: 5px;
@@ -120,14 +213,14 @@
       -ms-border-radius: 7px;
       -o-border-radius: 7px;
 
-      a{
+      a {
         color: white;
       }
     }
   }
 }
 
-.title-degree{
+.title-degree {
   background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
   margin-top: 10px;
   border-radius: 7px;
@@ -138,7 +231,7 @@
   -o-border-radius: 7px;
 }
 
-.control-create-degree{
+.control-create-degree {
   display: flex;
   justify-content: flex-start;
   margin: 0;
@@ -151,7 +244,7 @@
 
 /* PROJECTS + JOBS */
 
-.projects-part{
+.projects-part {
   background-color: #1e1e1e;
   padding: 10px;
   height: 345px;
@@ -162,12 +255,13 @@
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  .projects-title{
+
+  .projects-title {
     background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
     border-radius: 7px;
   }
 
-  .list-group-item{
+  .list-group-item {
     background-color: #000000;
     margin-top: 10px;
     border-radius: 10px !important;
@@ -177,7 +271,7 @@
     -o-border-radius: 10px !important;
 
 
-    .project-name{
+    .project-name {
       background-color: #1e1e1e;
       padding: 5px 5px 5px 15px;
       display: flex;
@@ -190,7 +284,7 @@
       -o-border-radius: 14px;
     }
 
-    a{
+    a {
       background-color: #1e1e1e;
       padding: 10px;
       margin: 0px;
@@ -204,15 +298,17 @@
       text-decoration: none;
     }
 
-    .show-btn{
+    .show-btn {
       font-weight: bold;
     }
-    .delete-btn{
+
+    .delete-btn {
       color: red;
       font-weight: bold;
     }
+
     .show-btn:hover,
-    .delete-btn:hover{
+    .delete-btn:hover {
       background-color: rgba(94, 94, 94, 0.623);
     }
   }
@@ -227,6 +323,7 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
 .projects-part::-webkit-scrollbar-thumb {
   background-color: rgb(0, 0, 0);
 }
@@ -247,7 +344,7 @@ img {
 }
 
 .gallery-diploma {
-  padding: 57px ;
+  padding: 57px;
 }
 
 .gallery-diploma img {

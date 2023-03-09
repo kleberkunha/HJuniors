@@ -1,29 +1,105 @@
 .edit-img-user{
     width: 10%;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
+.control-form-edit-user-info{
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 
-.edit-form-control-1{
-    text-align: center;
-    justify-content: space-around;
-    p{
-        input{
-            outline: none;
-            padding: 5px;
+    .edit-form-control-1{
+
+        .user-information-edit{
+
+            .first-edit-row{
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+                    padding: 5px;
+                    outline: none;
+                    border-radius: 10px;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    -ms-border-radius: 10px;
+                    -o-border-radius: 10px;
+                }
+            }
+            .second-edit-row{
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                input{
+                    padding: 5px;
+                    outline: none;
+                    border-radius: 10px;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    -ms-border-radius: 10px;
+                    -o-border-radius: 10px;
+                }
+            }
         }
-        textarea{
-            width: 100%;
+        p{
+            input{
+                outline: none;
+                padding: 5px;
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+            }
+            textarea{
+                width: 100%;
+            }
         }
     }
 }
+
 .edit-form-control-2{
     display: flex;
     justify-content: space-around;
 }
 .description-edit-area p textarea{
     width: 100% ;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.btn-update-user{
+
+    input{
+        width: 100%;
+        background: linear-gradient(90deg, rgba(87, 176, 112, 1), #c5cc48);
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        border: 0;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
+    input:hover{
+        color: white;
+        background: linear-gradient(0deg, rgba(87, 176, 112, 0.658), #c5cc48ab);
+    }
+
 }

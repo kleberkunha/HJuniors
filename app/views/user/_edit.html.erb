@@ -6,32 +6,46 @@
       <% end %>
       <%= f.file_field :avatar %>
     </div>
-    <div class="d-flex edit-form-control-1">
-      <p>
-        <%= f.text_field :first_name, placeholder:"First Name" %>
-      </p>
-      <p>
-        <%= f.text_field :last_name, placeholder:"Last Name"  %>
-      </p>
-      <p>
-        <%= f.text_field :address, placeholder:"Address"%>
-      </p>
-      <p>
-        <%= f.select :country, CS.countries%>
-      </p>
+    <div class="control-form-edit-user-info">
+      <div class="edit-form-control-1">
+        <div class="container-fluid user-information-edit">
+
+          <div class="row first-edit-row">
+            <div class="  p-0">
+              <%= f.text_field :first_name, placeholder:"First Name" %>
+            </div>
+            <div class=" ">
+              <%= f.text_field :last_name, placeholder:"Last Name"  %>
+            </div>
+            <div class=" ">
+              <input type="text", placeholder="Birth Date">
+            </div>
+          </div>
+
+
+          <div class="row mt-3 second-edit-row">
+            <div>
+              <%= f.text_field :phone, placeholder:"Phone number" %>
+            </div>
+            <div class="">
+              <%= f.text_field :address, placeholder:"Address"%>
+            </div>
+            <div>
+              <%= f.text_field :status, placeholder:"Junior Full Stack" %>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-2 mb-3">
+          <%= f.select :country, CS.countries%>
+        </div>
+      </div>
+      <div class="text-center description-edit-area">
+        <p>
+          <%= f.text_area :description %>
+        </p>
+      </div>
     </div>
-    <div class="d-flex edit-form-control-2">
-      <p>
-      <%= f.text_field :status, placeholder:"Junior Full Stack" %>
-      </p>
-      <p>
-      <%= f.text_field :phone, placeholder:"Phone number" %>
-      </p>
+    <div class="btn-update-user">
+      <%= f.submit 'Update user' %>
     </div>
-    <div class="text-center description-edit-area">
-      <p>
-        <%= f.text_area :description %>
-      </p>
-    </div>
-  <%= f.submit 'Update user' %>
 <% end %>
