@@ -12,33 +12,40 @@
 
 <div class="container list-of-projects">
   <div class="row">
+
     <% @project_found.each do |project|%>
-      <div class="nft">
-        <div class='main'>
-          <% if project.avatar.attached? %>
-            <%= image_tag project.avatar %>
-          <% else %>
-            <img class='tokenImage' src="https://images.unsplash.com/photo-1621075160523-b936ad96132a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="NFT" />
-          <% end %>
-          <h2><p><%=project.name %></p></h2>
-          <p class='description'><%= project.description %></p>
-          <div class='tokenInfo'>
-            <div class="price">
-              <ins>◘</ins>
+      <%= link_to project_url(project.id) do %>
+        <div class="nft">
+          <div class='main'>
+            <% if project.avatar.attached? %>
+              <%= image_tag project.avatar %>
+            <% else %>
+              <img class='tokenImage' src="https://images.unsplash.com/photo-1621075160523-b936ad96132a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="NFT" />
+            <% end %>
+            <h2><p><%=project.name %></p></h2>
+            <p class='description'><%= project.description %></p>
+            <div class='tokenInfo'>
+              <div class="price">
+                <ins>◘</ins>
+              </div>
+              <div class="duration">
+                <ins>◷</ins>
+                <p><%= project.created_at.strftime("%Y-%m-%d") %></p>
+              </div>
             </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p><%= project.created_at.strftime("%Y-%m-%d") %></p>
-            </div>
+            <hr />
+            <%= link_to user_path(project.user.id) do %>
+              <div class='creator d-flex justify-content-center'>
+                <p class=""><ins>Creation of </ins><%= project.user.first_name %></p>
+              </div>
+            <% end %>
           </div>
-          <hr />
-          <%= link_to user_path(project.user.id) do %>
-            <div class='creator d-flex justify-content-center'>
-              <p class=""><ins>Creation of </ins><%= project.user.first_name %></p>
-            </div>
-          <% end %>
+                  <div class="like-fa">
+            <img src="https://i.postimg.cc/KjdKqDV4/like.png" alt="like icon">
+            <%= project.likes.count %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

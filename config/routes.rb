@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   devise_for :user
   resources :user
 
+  resources :likes, only: %i[create destroy]
+
   root to: "home#index"
 end

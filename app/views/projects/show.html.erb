@@ -2,6 +2,21 @@
 
 <%= render @project %>
 
+<% like = current_user.likes.find_by(project: @project) %>
+<% if like.nil? %>
+  <form action="/likes" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+    <input type="hidden" name="like[project_id]" value="<%= @project.id%>">
+    <input type="submit" value="Like">
+  </form>
+<% else %>
+  <form action="<%= like_path(like)%>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+    <input type=hidden name="_method" value="DELETE">
+    <input type="submit" value="Unlike">
+  </form>
+<% end %>
+
 <div>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>

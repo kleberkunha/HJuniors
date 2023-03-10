@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   include PgSearch::Model
   has_one_attached :avatar
   belongs_to :user
+  has_many :likes
 
   scope :sorted, -> { order(name: :asc) }
   pg_search_scope :global_search,
