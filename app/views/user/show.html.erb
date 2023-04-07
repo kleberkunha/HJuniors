@@ -116,7 +116,7 @@
     <hr class="bg-white">
 </div>
 
-<div class="container p-0 control-create-degree">
+<div class="container pb-3 pl-0 control-create-degree">
     <%= render partial: 'user/form_degree', format: :erb %>
 </div>
 
@@ -124,14 +124,14 @@
     <div class="container-lg control-gallery">
         <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
         <% @degrees.each do |degree| %>
-            <% if @user.avatar.attached? %>
-            <div class="col image-card-with-button-delete">
-                <img src="<%=(url_for(degree.avatar))%>" class="gallery-item" alt="gallery">
-                <% if current_user.id === degree.user_id%>
-                <%= link_to 'Delete', degree_path(degree.id),data: { "turbo-method": :delete },
-                method: :delete, class:'btn-delete-degree-profile' %>
-                <% end %>
-            </div>
+            <% if degree.avatar.attached? %>
+                <div class="col image-card-with-button-delete">
+                    <img src="<%=(url_for(degree.avatar))%>" class="gallery-item" alt="gallery">
+                    <% if current_user.id === degree.user_id%>
+                    <%= link_to 'Delete', degree_path(degree.id),data: { "turbo-method": :delete },
+                    method: :delete, class:'btn-delete-degree-profile' %>
+                    <% end %>
+                </div>
             <% end %>
         <% end %>
         </div>
@@ -140,7 +140,7 @@
 
 <div class="container mb-5">
     <div class="row d-flex justify-content-center mt-5">
-        <div class="mx-3 control-project">
+        <div class="col-sm-6 control-project">
             <div class="d-flex justify-content-center">
                 <h1 class="text-center projects-title">Projects</h1>
             </div>
@@ -166,7 +166,7 @@
             </div>
         </div>
 
-        <div class="ml-3 control-jobs">
+        <div class="col-sm-6 control-jobs">
             <div class="d-flex justify-content-center">
                 <h1 class="text-center projects-title">Jobs</h1>
             </div>

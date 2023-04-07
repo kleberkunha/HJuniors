@@ -1,30 +1,53 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row control-info-project mt-5">
+    <div class="col-sm-6 wide-project-bg">
+      <img src="<%=(url_for(@project.avatar))%>" alt="">
+    </div>
+    <div class="col-sm-6 info-project mt-5">
 
-<%= render @project %>
+      <div>
+        <p>Application name : <%= @project.name %></p>
+        <p>Made for : <%= @project.school %></p>
+        <p>Main language : <%= @project.language_id %></p>
+        <p>Mini Description: <%= @project.description %></p>
+      </div>
 
-<% like = current_user.likes.find_by(project: @project) %>
-<% if like.nil? %>
-  <form action="/likes" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
-    <input type="hidden" name="like[project_id]" value="<%= @project.id%>">
-    <input type="submit" value="Like">
-  </form>
-<% else %>
-  <form action="<%= like_path(like)%>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
-    <input type=hidden name="_method" value="DELETE">
-    <input type="submit" value="Unlike">
-  </form>
-<% end %>
-
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
-
-  <%= button_to "Destroy this project", @project, method: :delete %>
+      <% like = current_user.likes.find_by(project: @project) %>
+      <% if like.nil? %>
+        <form action="/likes" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+          <input type="hidden" name="like[project_id]" value="<%= @project.id%>">
+          <input type="submit" value="Like">
+        </form>
+      <% else %>
+        <form action="<%= like_path(like)%>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+          <input type=hidden name="_method" value="DELETE">
+          <input type="submit" value="Unlike">
+        </form>
+      <% end %>
+    </div>
+  </div>
 </div>
 
+<% if @project.user_id === current_user.id %>
+  <div>
+    <%= link_to "Edit this project", edit_project_path(@project) %> |
+    <%= link_to "Back to projects", projects_path %>
 
+    <%= button_to "Destroy this project", @project, method: :delete %>
+  </div>
+<% end %>
+<hr class="bg-light mt-5">
+
+<div class="container-fluid">
+  <div class="row control-information-project">
+    <div class="col-sm-6">
+      <img src="" alt="">
+    </div>
+    <div class="col-sm-6">teste</div>
+  </div>
+</div>
 
 <code>
     <%= @project.description %>

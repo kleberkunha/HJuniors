@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         format.html do
-          redirect_to project_url(@project),
+          redirect_to user_url(current_user.id),
                       notice: "Project was successfully created."
         end
         format.json { render :show, status: :created, location: @project }
@@ -51,7 +51,10 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     @project = Project.find(params[:id])
-    @project.avatar.attach(params[:avatar])
+    if @project.avatar.nil?
+      @project.avatar.attach(params[:avatar])
+      @project.webprojimg.attach(params[:webprojimg])
+    end
     respond_to do |format|
       if @project.update(project_params)
         format.html do
@@ -95,7 +98,8 @@ class ProjectsController < ApplicationController
       :school,
       :language_id,
       :user_id,
-      :avatar
+      :avatar,
+      :webprojimg
     )
   end
 end

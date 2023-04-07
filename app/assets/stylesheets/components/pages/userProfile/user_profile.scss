@@ -31,7 +31,6 @@
 
   .user-heading {
     max-height: 200px;
-    background-color: #0D0D0D;
     overflow: hidden;
     border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -39,14 +38,14 @@
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
 
-
     .profile-user-img {
-      width: 100%;
       border-radius: 28px;
       -webkit-border-radius: 28px;
       -moz-border-radius: 28px;
       -ms-border-radius: 28px;
       -o-border-radius: 28px;
+      height: 200px;
+      image-rendering: optimizeQuality;
     }
   }
 
@@ -63,13 +62,10 @@
   }
 }
 
-
 .profile-user-info {
   padding-right: 0px !important;
 
   .panel {
-
-
     .bio-graph-heading {
       content: "";
       background-color: #1e1e1e;
@@ -108,7 +104,6 @@
       -moz-border-radius: 26px;
       -ms-border-radius: 26px;
       -o-border-radius: 26px;
-
 
       .row {
         .control-user-info {
@@ -190,7 +185,6 @@
   -o-border-radius: 20px;
 }
 
-
 .user-settings {
   background-color: #1e1e1e;
   padding: 15px;
@@ -237,11 +231,6 @@
   margin: 0;
 }
 
-
-
-
-
-
 /* PROJECTS + JOBS */
 
 .projects-part {
@@ -269,7 +258,6 @@
     -moz-border-radius: 10px !important;
     -ms-border-radius: 10px !important;
     -o-border-radius: 10px !important;
-
 
     .project-name {
       background-color: #1e1e1e;
@@ -316,8 +304,8 @@
 
 .projects-part::-webkit-scrollbar {
   border-radius: 10px;
-  width: 5px;
-  background-color: white;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -325,13 +313,8 @@
 }
 
 .projects-part::-webkit-scrollbar-thumb {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.473);
 }
-
-
-
-
-
 
 
 .user_hide_info {

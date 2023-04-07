@@ -1,0 +1,19 @@
+.control-info-project{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .info-project{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+.control-information-project{
+    display: flex;
+    background-color: white;
+}
