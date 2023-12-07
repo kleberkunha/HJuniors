@@ -1,3 +1,1 @@
-# Current working on this project !
-
-#### https://ohmyjunior.herokuapp.com/
+# This project is in pause !!
